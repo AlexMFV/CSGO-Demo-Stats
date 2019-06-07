@@ -70,15 +70,23 @@ namespace CSGO_Demo_Stats
                 parser = new DemoParser(File.OpenRead(ofdFile.FileName));
                 parser.ParseHeader();
                 demo.Map = parser.Map;
-                parser.RoundStart += Parser_RoundStart;
-                parser.MatchStarted += Parser_MatchStarted;
-                parser.MatchStarted += Parser_MatchStarted;
-                parser.PlayerKilled += Parser_PlayerKilled;
-                parser.BombPlanted += Parser_BombPlanted;
-                parser.BombDefused += Parser_BombDefused;
-                parser.BombExploded += Parser_BombExploded;
+                //parser.RoundStart += Parser_RoundStart;
+                //parser.MatchStarted += Parser_MatchStarted;
+                //parser.MatchStarted += Parser_MatchStarted;
+                //parser.PlayerKilled += Parser_PlayerKilled;
+                //parser.BombPlanted += Parser_BombPlanted;
+                //parser.BombDefused += Parser_BombDefused;
+                //parser.BombExploded += Parser_BombExploded;
+                parser.PlayerBind += Parser_PlayerBind;
+                txtContent.Text = demo.Map + "\r\n\r\n";
                 parser.ParseToEnd();
             }
+        }
+
+        private void Parser_PlayerBind(object sender, PlayerBindEventArgs e)
+        {
+            if(!txtContent.Text.Contains(e.Player.SteamID.ToString()))
+                txtContent.Text += e.Player.Name + " - " + e.Player.SteamID + "\r\n";
         }
     }
 }
