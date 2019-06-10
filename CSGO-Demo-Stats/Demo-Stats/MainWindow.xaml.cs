@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DemoInfo;
+using Newtonsoft.Json;
 
 namespace Demo_Stats
 {
@@ -24,6 +25,19 @@ namespace Demo_Stats
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnRefresh_MouseUp1(object sender, MouseButtonEventArgs e)
+        {
+            Account acc = Parser.ParseAccount(txtSteamID.Text);
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtSteamID.Text.Length > 0)
+                btnRefresh.IsEnabled = true;
+            else
+                btnRefresh.IsEnabled = false;
         }
     }
 }
