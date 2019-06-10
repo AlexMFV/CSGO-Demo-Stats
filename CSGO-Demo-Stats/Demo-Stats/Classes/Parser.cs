@@ -6,18 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Newtonsoft.Json;
+using Demo_Stats.Properties;
 
 namespace Demo_Stats
 {
     public static class Parser
     {
-        //REMOVE THIS and add to the Resources later (Testing purposes only!)
-        static string _steamAPIKey = "AA741B7FC2EE534447387D322EBEDC39";
-        static string _MySteamID = "76561198061445771";
-        static string _getPlayerURL = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=" +
-            "AA741B7FC2EE534447387D322EBEDC39" +
-            "&steamids=";
-
         static string GrabJSONString(string id)
         {
             try
@@ -26,7 +20,7 @@ namespace Demo_Stats
 
                 using (WebClient web = new WebClient())
                 {
-                    _json = web.DownloadString(_getPlayerURL + id);
+                    _json = web.DownloadString(Resources.API_ProfileURL + id);
                 }
 
                 //Verify if JSON string is complete, in case the user entered a wrong ID

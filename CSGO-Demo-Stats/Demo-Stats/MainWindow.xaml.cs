@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DemoInfo;
 using Newtonsoft.Json;
+using Demo_Stats.Properties;
 
 namespace Demo_Stats
 {

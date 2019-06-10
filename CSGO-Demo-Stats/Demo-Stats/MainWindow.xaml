@@ -7,7 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button PreviewMouseDown="BtnRefresh_MouseUp1" x:Name="btnRefresh" Content="Refresh Account" IsEnabled="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="103" ClickMode="Press"></Button>
+        <Button PreviewMouseDown="BtnRefresh_MouseUp1" x:Name="btnRefresh" Content="Refresh Account" IsEnabled="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="103" ClickMode="Press"/>
         <TextBox x:Name="txtSteamID" HorizontalAlignment="Left" TextChanged="TextBox_TextChanged" VerticalAlignment="Top" Margin="120,10,0,0" Height="20" Width="250"/>
+        <Label x:Name="lblNick" Content="Label" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Width="360"/>
+        <Label x:Name="lblSteamID1" Content="Label" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="360"/>
+        <Label x:Name="lblDateCreated" Content="Label" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Width="360"/>
+        <Label x:Name="lblLastLogoff" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,137,0,0" Width="360"/>
+        <Label x:Name="lblLocation" Content="Label" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Width="360"/>
+        <Label x:Name="lblLocID" Content="Label" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" Width="360"/>
+        <Image x:Name="imgAvatar" HorizontalAlignment="Left" Height="100" Margin="431,59,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
