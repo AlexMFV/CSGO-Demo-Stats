@@ -35,12 +35,38 @@ namespace Demo_Stats
             }
         }
 
-        public static void ParseAccount(string id)
+        public static Account ParseAccount(string id)
         {
-            JObject objs = JObject.Parse(TrimAccount(GrabJSONString(id)));
-            foreach (KeyValuePair<string, JToken> pair in objs)
+            try
             {
-
+                Account newAcc = new Account();
+                JObject objs = JObject.Parse(TrimAccount(GrabJSONString(id)));
+                foreach (KeyValuePair<string, JToken> pair in objs)
+                {
+                    switch (pair.Key)
+                    {
+                        case "steamid": newAcc._steamID = (string)pair.Value; break;
+                        case "communityvisibilitystate": newAcc._visibilityState = (string)pair.Value; break;
+                        case "profilestate": newAcc._profileState = (string)pair.Value; break;
+                        case "personaname": newAcc._personaName = (string)pair.Value; break;
+                        case "lastlogoff": newAcc._lastlogoff = (string)pair.Value; break;
+                        case "commentpermission": newAcc._commentPermission = (string)pair.Value; break;
+                        case "profileurl": newAcc._profileURL = (string)pair.Value; break;
+                        case "avatarfull": newAcc._avatarFull = (string)pair.Value; break;
+                        case "personastate": newAcc._personaState = (string)pair.Value; break;
+                        case "primaryclanid": newAcc._primaryClanID = (string)pair.Value; break;
+                        case "timecreated": newAcc._timeCreated = (string)pair.Value; break;
+                        case "personastateflags": newAcc._personaStateFlags = (string)pair.Value; break; 
+                        case "loccountrycode": newAcc._locCountryCode = (string)pair.Value; break;
+                        case "locstatecode": newAcc._locStateCode = (string)pair.Value; break;
+                        case "loccityid": newAcc._locCityID = (string)pair.Value; break;
+                    } 
+                }
+                return newAcc;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
 
