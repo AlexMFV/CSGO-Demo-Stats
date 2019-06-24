@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Newtonsoft.Json;
 using Demo_Stats.Properties;
+using Newtonsoft.Json.Linq;
 
 namespace Demo_Stats
 {
@@ -34,9 +35,13 @@ namespace Demo_Stats
             }
         }
 
-        public static Account ParseAccount(string id)
+        public static void ParseAccount(string id)
         {
-            return JsonConvert.DeserializeObject<Account>(TrimAccount(GrabJSONString(id)));
+            JObject objs = JObject.Parse(TrimAccount(GrabJSONString(id)));
+            foreach (KeyValuePair<string, JToken> pair in objs)
+            {
+
+            }
         }
 
         static string TrimAccount(string json)
@@ -47,3 +52,4 @@ namespace Demo_Stats
         }
     }
 }
+    

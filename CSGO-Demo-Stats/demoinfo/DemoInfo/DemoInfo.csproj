@@ -134,7 +134,5 @@
   </Target>
   -->
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="DP\FastNetmessages\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
