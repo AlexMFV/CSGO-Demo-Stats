@@ -70,15 +70,6 @@ namespace Demo_Stats.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a AA741B7FC2EE534447387D322EBEDC39.
-        /// </summary>
-        internal static string KeySteamAPI {
-            get {
-                return ResourceManager.GetString("KeySteamAPI", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a 76561198061445771.
         /// </summary>
         internal static string MySteamID {
