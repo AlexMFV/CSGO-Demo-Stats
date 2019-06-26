@@ -60,7 +60,7 @@ namespace Demo_Stats
                         case "loccountrycode": newAcc._locCountryCode = (string)pair.Value; break;
                         case "locstatecode": newAcc._locStateCode = (string)pair.Value; break;
                         case "loccityid": newAcc._locCityID = (string)pair.Value; break;
-                    } 
+                    }
                 }
                 return newAcc;
             }
