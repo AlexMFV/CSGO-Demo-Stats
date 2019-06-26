@@ -30,7 +30,13 @@ namespace Demo_Stats
 
         private void BtnRefresh_MouseUp1(object sender, MouseButtonEventArgs e)
         {
-            Account acc = Parser.ParseAccount(txtSteamID.Text);
+            string[] accs = { "76561198061445771", "76561198202125464", "76561198039056787", "76561198030622192", "76561198031669452" };
+            Accounts collection = new Accounts();
+
+            foreach(string account in accs)
+            {
+                collection.Add(Parser.ParseAccount(account));
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

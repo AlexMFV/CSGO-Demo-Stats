@@ -61,11 +61,20 @@ namespace Demo_Stats.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=AA741B7FC2EE534447387D322EBEDC39&amp;steamids=.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=.
         /// </summary>
-        internal static string API_ProfileURL {
+        internal static string API_ProfileURL1 {
             get {
-                return ResourceManager.GetString("API_ProfileURL", resourceCulture);
+                return ResourceManager.GetString("API_ProfileURL1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a &amp;steamids=.
+        /// </summary>
+        internal static string API_ProfileURL2 {
+            get {
+                return ResourceManager.GetString("API_ProfileURL2", resourceCulture);
             }
         }
         

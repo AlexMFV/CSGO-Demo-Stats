@@ -21,7 +21,7 @@ namespace Demo_Stats
 
                 using (WebClient web = new WebClient())
                 {
-                    _json = web.DownloadString(Resources.API_ProfileURL + id);
+                    _json = web.DownloadString(Resources.API_ProfileURL1 + APIKey.GetKeyFromFile() + Resources.API_ProfileURL2 + id);
                 }
 
                 //Verify if JSON string is complete, in case the user entered a wrong ID

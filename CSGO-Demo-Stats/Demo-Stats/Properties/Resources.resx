@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="API_ProfileURL" xml:space="preserve">
-    <value>http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=AA741B7FC2EE534447387D322EBEDC39&amp;steamids=</value>
+  <data name="API_ProfileURL1" xml:space="preserve">
+    <value>http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=</value>
+  </data>
+  <data name="API_ProfileURL2" xml:space="preserve">
+    <value>&amp;steamids=</value>
   </data>
   <data name="MySteamID" xml:space="preserve">
     <value>76561198061445771</value>
