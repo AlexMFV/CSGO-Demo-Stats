@@ -1,0 +1,2 @@
+﻿- Store in the file the ID and nickname ONLY (gather dynamically on app start)
+- Add Rank Class and Images

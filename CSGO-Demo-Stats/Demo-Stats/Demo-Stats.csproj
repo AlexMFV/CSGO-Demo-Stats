@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -69,6 +70,7 @@
     <Compile Include="Classes\Account\Account.cs" />
     <Compile Include="Classes\Account\Accounts.cs" />
     <Compile Include="Classes\API\APIKey.cs" />
+    <Compile Include="Classes\Cache.cs" />
     <Compile Include="Classes\Demo.cs" />
     <Compile Include="Classes\Parser.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -111,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="API\api_key.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
