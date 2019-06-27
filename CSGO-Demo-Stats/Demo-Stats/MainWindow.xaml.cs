@@ -63,19 +63,19 @@ namespace Demo_Stats
 
             foreach(Account acc in collection)
             {
-                cbbAccounts.Items.Add(acc._personaName);
+                cbbAccounts.Items.Add(acc.personaName);
             }
         }
 
         public void FillDetails(Account acc)
         {
-            lblNick.Content = acc._personaName;
-            lblSteamID1.Content = acc._steamID;
-            lblLocID.Content = acc._locCountryCode;
-            lblLocation.Content = acc._locCityID;
-            lblLastLogoff.Content = acc._lastlogoff;
-            lblDateCreated.Content = acc._timeCreated;
-            imgAvatar.Source = GetImageFromURL(acc._avatarFull);
+            lblNick.Content = acc.personaName;
+            lblSteamID1.Content = acc.steamID;
+            lblLocID.Content = acc.locCountryCode;
+            lblLocation.Content = acc.locCityID;
+            lblLastLogoff.Content = acc.lastlogoff;
+            lblDateCreated.Content = acc.timeCreated;
+            imgAvatar.Source = GetImageFromURL(acc.avatarFull);
         }
 
         public BitmapImage GetImageFromURL(string url)

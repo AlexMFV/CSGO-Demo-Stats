@@ -45,21 +45,21 @@ namespace Demo_Stats
                 {
                     switch (pair.Key)
                     {
-                        case "steamid": newAcc._steamID = (string)pair.Value; break;
-                        case "communityvisibilitystate": newAcc._visibilityState = (string)pair.Value; break;
-                        case "profilestate": newAcc._profileState = (string)pair.Value; break;
-                        case "personaname": newAcc._personaName = (string)pair.Value; break;
-                        case "lastlogoff": newAcc._lastlogoff = (string)pair.Value; break;
-                        case "commentpermission": newAcc._commentPermission = (string)pair.Value; break;
-                        case "profileurl": newAcc._profileURL = (string)pair.Value; break;
-                        case "avatarfull": newAcc._avatarFull = (string)pair.Value; break;
-                        case "personastate": newAcc._personaState = (string)pair.Value; break;
-                        case "primaryclanid": newAcc._primaryClanID = (string)pair.Value; break;
-                        case "timecreated": newAcc._timeCreated = (string)pair.Value; break;
-                        case "personastateflags": newAcc._personaStateFlags = (string)pair.Value; break; 
-                        case "loccountrycode": newAcc._locCountryCode = (string)pair.Value; break;
-                        case "locstatecode": newAcc._locStateCode = (string)pair.Value; break;
-                        case "loccityid": newAcc._locCityID = (string)pair.Value; break;
+                        case "steamid": newAcc.steamID = (string)pair.Value; break;
+                        case "communityvisibilitystate": newAcc.visibilityState = (string)pair.Value; break;
+                        case "profilestate": newAcc.profileState = (string)pair.Value; break;
+                        case "personaname": newAcc.personaName = (string)pair.Value; break;
+                        case "lastlogoff": newAcc.lastlogoff = (string)pair.Value; break;
+                        case "commentpermission": newAcc.commentPermission = (string)pair.Value; break;
+                        case "profileurl": newAcc.profileURL = (string)pair.Value; break;
+                        case "avatarfull": newAcc.avatarFull = (string)pair.Value; break;
+                        case "personastate": newAcc.personaState = (string)pair.Value; break;
+                        case "primaryclanid": newAcc.primaryClanID = (string)pair.Value; break;
+                        case "timecreated": newAcc.timeCreated = (string)pair.Value; break;
+                        case "personastateflags": newAcc.personaStateFlags = (string)pair.Value; break; 
+                        case "loccountrycode": newAcc.locCountryCode = (string)pair.Value; break;
+                        case "locstatecode": newAcc.locStateCode = (string)pair.Value; break;
+                        case "loccityid": newAcc.locCityID = (string)pair.Value; break;
                     }
                 }
                 return newAcc;
