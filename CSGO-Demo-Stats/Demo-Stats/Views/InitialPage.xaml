@@ -1,0 +1,15 @@
+﻿<Page x:Class="Demo_Stats.Views.InitialPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Demo_Stats.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="InitialPage" Background="Black">
+
+    <Grid Background="#FF383838">
+        <Button x:Name="btnOpenSettings" Content="Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="231" Height="46" Click="BtnOpenSettings_Click"/>
+
+    </Grid>
+</Page>

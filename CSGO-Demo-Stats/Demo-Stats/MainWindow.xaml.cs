@@ -30,22 +30,23 @@ namespace Demo_Stats
         public MainWindow()
         {
             InitializeComponent();
-            collection = Cache.LoadAccounts();
-            UpdateComboBox();
+            this.Content = new Views.InitialPage(this);
+            //collection = Cache.LoadAccounts();
+            //UpdateComboBox();
         }
 
         private void BtnRefresh_MouseUp1(object sender, MouseButtonEventArgs e)
         {
-            if (cbbAccounts.HasItems)
-                if (cbbAccounts.SelectedIndex != -1)
-                    FillDetails(collection[cbbAccounts.SelectedIndex]);
+            //if (cbbAccounts.HasItems)
+            //    if (cbbAccounts.SelectedIndex != -1)
+            //        FillDetails(collection[cbbAccounts.SelectedIndex]);
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                collection.Add(Parser.ParseAccount(txtSteamID.Text));
+                //collection.Add(Parser.ParseAccount(txtSteamID.Text));
 
                 Cache.SaveAccounts(collection);
 
@@ -59,23 +60,23 @@ namespace Demo_Stats
 
         public void UpdateComboBox()
         {
-            cbbAccounts.Items.Clear();
+            //cbbAccounts.Items.Clear();
 
-            foreach(Account acc in collection)
-            {
-                cbbAccounts.Items.Add(acc.personaName);
-            }
+            //foreach(Account acc in collection)
+            //{
+            //    cbbAccounts.Items.Add(acc.personaName);
+            //}
         }
 
         public void FillDetails(Account acc)
         {
-            lblNick.Content = acc.personaName;
-            lblSteamID1.Content = acc.steamID;
-            lblLocID.Content = acc.locCountryCode;
-            lblLocation.Content = acc.locCityID;
-            lblLastLogoff.Content = acc.lastlogoff;
-            lblDateCreated.Content = acc.timeCreated;
-            imgAvatar.Source = GetImageFromURL(acc.avatarFull);
+            //lblNick.Content = acc.personaName;
+            //lblSteamID1.Content = acc.steamID;
+            //lblLocID.Content = acc.locCountryCode;
+            //lblLocation.Content = acc.locCityID;
+            //lblLastLogoff.Content = acc.lastlogoff;
+            //lblDateCreated.Content = acc.timeCreated;
+            //imgAvatar.Source = GetImageFromURL(acc.avatarFull);
         }
 
         public BitmapImage GetImageFromURL(string url)
@@ -93,6 +94,11 @@ namespace Demo_Stats
             {
                 throw ex;
             }
+        }
+
+        public void OpenSettings()
+        {
+            this.Content = new Settings();
         }
     }
 }
