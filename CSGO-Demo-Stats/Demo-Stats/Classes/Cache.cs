@@ -32,7 +32,7 @@ namespace Demo_Stats
                 JArray arr = JArray.Parse(File.ReadAllText(cacheDir + "\\steam_accounts.json"));
                 foreach(JObject obj in arr)
                 {
-                    Account acc = obj.ToObject<Account>();
+                    Account acc = Parser.ParseAccount(obj.Property("SteamID").Value.ToString());
                     collection.Add(acc);
                 }
             }
@@ -60,7 +60,17 @@ namespace Demo_Stats
             using (StreamWriter file = File.CreateText(cacheDir + "\\steam_accounts.json"))
             using (JsonTextWriter writer = new JsonTextWriter(file))
             {
-                JArray.FromObject(collection).WriteTo(writer);
+                JArray arr = new JArray();
+
+                foreach(Account acc in collection)
+                {
+                    JObject toAdd = new JObject();
+                    toAdd.Add("SteamID", acc.steamID);
+                    toAdd.Add("Name", acc.personaName);
+                    arr.Add(toAdd);
+                }
+
+                arr.WriteTo(writer);
             }
         }
 
