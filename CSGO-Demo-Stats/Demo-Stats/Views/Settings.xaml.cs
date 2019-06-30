@@ -20,12 +20,13 @@ namespace Demo_Stats.Views
     /// </summary>
     public partial class Settings : Page
     {
-        MainWindow main; 
+        public MainWindow main; 
 
         public Settings(MainWindow _main)
         {
             InitializeComponent();
             main = _main;
+            this.frame.Content = new SettingsViews.Accounts(this);
         }
 
         private void TxtAccounts_MouseEnter(object sender, MouseEventArgs e)
@@ -36,6 +37,11 @@ namespace Demo_Stats.Views
         private void TxtAccounts_MouseLeave(object sender, MouseEventArgs e)
         {
             txtAccounts.Foreground = (SolidColorBrush)this.FindResource("DefaultColor");
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            main.Content = new InitialPage(main);
         }
     }
 }

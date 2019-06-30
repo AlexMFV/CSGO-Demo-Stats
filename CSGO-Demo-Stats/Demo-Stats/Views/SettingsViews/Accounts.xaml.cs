@@ -20,9 +20,15 @@ namespace Demo_Stats.Views.SettingsViews
     /// </summary>
     public partial class Accounts : Page
     {
-        public Accounts()
+        Settings settings;
+
+        public Accounts(Settings _settings)
         {
             InitializeComponent();
+            settings = _settings;
+            
+            //Since all the collections are stored in the MainWindow, we need to access them by the "refs"
+            //To access the collections use settings.main.<collection_name>
         }
     }
 }

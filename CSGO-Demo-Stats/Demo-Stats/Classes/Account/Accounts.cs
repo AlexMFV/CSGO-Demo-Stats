@@ -2,7 +2,7 @@
 
 namespace Demo_Stats
 {
-    class Accounts : CollectionBase
+    public class Accounts : CollectionBase
     {
         public void Add (Account acc)
         {

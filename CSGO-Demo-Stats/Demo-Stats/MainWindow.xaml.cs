@@ -25,7 +25,7 @@ namespace Demo_Stats
     /// </summary>
     public partial class MainWindow : Window
     {
-        Accounts collection = new Accounts();
+        public Accounts accounts_collection = new Accounts();
 
         public MainWindow()
         {
@@ -48,7 +48,7 @@ namespace Demo_Stats
             {
                 //collection.Add(Parser.ParseAccount(txtSteamID.Text));
 
-                Cache.SaveAccounts(collection);
+                Cache.SaveAccounts(accounts_collection);
 
                 UpdateComboBox();
             }

@@ -21,12 +21,13 @@
     </Page.Resources>
 
     <Grid Background="#FF383838">
-        <Frame Content="Frame" HorizontalAlignment="Left" Height="720" Margin="200,0,0,0" VerticalAlignment="Top" Width="1080"/>
-        <Label x:Name="txtAccounts" Content="Accounts   |" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" FontSize="28" Foreground="#FFD1D1D1" Background="{x:Null}" MouseEnter="TxtAccounts_MouseEnter" MouseLeave="TxtAccounts_MouseLeave"/>
-        <Label Content="Example 1  |" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top" FontSize="28" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 2  |" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" FontSize="28" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 3  |" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontSize="28" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 4  |" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" FontSize="28" Foreground="#FFD1D1D1"/>
+        <Frame x:Name="frame" Content="Frame" HorizontalAlignment="Left" Height="720" Margin="200,0,0,0" VerticalAlignment="Top" Width="1080"/>
+        <Label x:Name="txtAccounts" Content="Accounts   |" HorizontalAlignment="Left" Margin="20,48,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Background="{x:Null}" MouseEnter="TxtAccounts_MouseEnter" MouseLeave="TxtAccounts_MouseLeave"/>
+        <Label Content="Example 1  |" HorizontalAlignment="Left" Margin="20,88,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
+        <Label Content="Example 2  |" HorizontalAlignment="Left" Margin="20,128,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
+        <Label Content="Example 3  |" HorizontalAlignment="Left" Margin="20,168,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
+        <Label Content="Example 4  |" HorizontalAlignment="Left" Margin="20,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
+        <Button x:Name="btnBack" Content="&lt;--" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="20,10,0,0" Height="33" Click="BtnBack_Click"/>
     </Grid>
-    
+
 </Page>
