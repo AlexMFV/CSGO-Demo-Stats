@@ -26,7 +26,7 @@ namespace Demo_Stats.Views
         {
             InitializeComponent();
             main = _main;
-            this.frame.Content = new SettingsViews.Accounts(this);
+            this.frame.Content = new SettingsViews.AccountsPanel(this);
         }
 
         private void TxtAccounts_MouseEnter(object sender, MouseEventArgs e)

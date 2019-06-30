@@ -52,7 +52,7 @@ namespace Demo_Stats
                         case "lastlogoff": newAcc.lastlogoff = (string)pair.Value; break;
                         case "commentpermission": newAcc.commentPermission = (string)pair.Value; break;
                         case "profileurl": newAcc.profileURL = (string)pair.Value; break;
-                        case "avatarfull": newAcc.avatarFull = (string)pair.Value; break;
+                        case "avatar": newAcc.avatar = (string)pair.Value; break;
                         case "personastate": newAcc.personaState = (string)pair.Value; break;
                         case "primaryclanid": newAcc.primaryClanID = (string)pair.Value; break;
                         case "timecreated": newAcc.timeCreated = (string)pair.Value; break;
@@ -65,6 +65,31 @@ namespace Demo_Stats
                 return newAcc;
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static Account ParseAccountBasic(string id)
+        {
+            try
+            {
+                Account newAcc = new Account();
+                JObject objs = JObject.Parse(TrimAccount(GrabJSONString(id)));
+                foreach (KeyValuePair<string, JToken> pair in objs)
+                {
+                    switch (pair.Key)
+                    {
+                        case "steamid": newAcc.steamID = (string)pair.Value; break;
+                        case "personaname": newAcc.personaName = (string)pair.Value; break;
+                    }
+
+                    if (newAcc.steamID != null && newAcc.personaName != null)
+                        return newAcc;
+                }
+                return newAcc;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

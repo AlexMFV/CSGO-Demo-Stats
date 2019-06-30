@@ -59,15 +59,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Misc\AccountListItem.cs" />
+    <Compile Include="Classes\Web\WebAccess.cs" />
+    <Compile Include="Dialogs\NewAccountDialog.xaml.cs">
+      <DependentUpon>NewAccountDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\InitialPage.xaml.cs">
       <DependentUpon>InitialPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SettingsViews\Accounts.xaml.cs">
-      <DependentUpon>Accounts.xaml</DependentUpon>
+    <Compile Include="Views\SettingsViews\AccountsPanel.xaml.cs">
+      <DependentUpon>AccountsPanel.xaml</DependentUpon>
     </Compile>
+    <Page Include="Dialogs\NewAccountDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,7 +103,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SettingsViews\Accounts.xaml">
+    <Page Include="Views\SettingsViews\AccountsPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

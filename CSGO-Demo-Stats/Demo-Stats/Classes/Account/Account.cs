@@ -20,7 +20,7 @@ namespace Demo_Stats
         public string lastlogoff { get; set; } //Epoch of last log on
         public string commentPermission { get; set; } //Can other people comment on the profile?
         public string profileURL { get; set; } //URL of profile
-        public string avatarFull { get; set; } //Link to the full url image
+        public string avatar { get; set; } //Link to the full url image
         public string personaState { get; set; } //IDK
         public string primaryClanID { get; set; } //ID of the group the user set as default
         public string timeCreated { get; set; } //Epoch of when the account was created

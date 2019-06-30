@@ -79,23 +79,6 @@ namespace Demo_Stats
             //imgAvatar.Source = GetImageFromURL(acc.avatarFull);
         }
 
-        public BitmapImage GetImageFromURL(string url)
-        {
-            try
-            {
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(url, UriKind.Absolute);
-                bitmap.EndInit();
-
-                return bitmap;
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public void OpenSettings()
         {
             this.Content = new Settings();

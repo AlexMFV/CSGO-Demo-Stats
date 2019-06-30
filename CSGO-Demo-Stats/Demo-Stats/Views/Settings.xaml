@@ -22,12 +22,13 @@
 
     <Grid Background="#FF383838">
         <Frame x:Name="frame" Content="Frame" HorizontalAlignment="Left" Height="720" Margin="200,0,0,0" VerticalAlignment="Top" Width="1080"/>
-        <Label x:Name="txtAccounts" Content="Accounts   |" HorizontalAlignment="Left" Margin="20,48,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Background="{x:Null}" MouseEnter="TxtAccounts_MouseEnter" MouseLeave="TxtAccounts_MouseLeave"/>
-        <Label Content="Example 1  |" HorizontalAlignment="Left" Margin="20,88,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 2  |" HorizontalAlignment="Left" Margin="20,128,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 3  |" HorizontalAlignment="Left" Margin="20,168,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 4  |" HorizontalAlignment="Left" Margin="20,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
+        <Label x:Name="txtAccounts" Content="Accounts" HorizontalAlignment="Left" Margin="20,66,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Background="{x:Null}" MouseEnter="TxtAccounts_MouseEnter" MouseLeave="TxtAccounts_MouseLeave"/>
+        <Label Content="Example 1" HorizontalAlignment="Left" Margin="20,106,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
+        <Label Content="Example 2" HorizontalAlignment="Left" Margin="20,146,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
+        <Label Content="Example 3" HorizontalAlignment="Left" Margin="20,186,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
+        <Label Content="Example 4" HorizontalAlignment="Left" Margin="20,226,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
         <Button x:Name="btnBack" Content="&lt;--" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="20,10,0,0" Height="33" Click="BtnBack_Click"/>
+        <Ellipse Fill="#FFD1D1D1" HorizontalAlignment="Left" Height="1080" Margin="167,0,0,0" Stroke="#FFD1D1D1" VerticalAlignment="Center" Width="1"/>
     </Grid>
 
 </Page>
