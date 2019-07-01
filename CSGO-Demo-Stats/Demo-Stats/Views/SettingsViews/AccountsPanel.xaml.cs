@@ -63,14 +63,19 @@ namespace Demo_Stats.Views.SettingsViews
                 {
                     SteamID = prompt.Answer;
 
-                    //Parse returned ID / Add to collection
-                    acc_collection.Add(Parser.ParseAccountBasic(SteamID));
+                    if (!Parser.AccountExists(SteamID, acc_collection))
+                    {
+                        //Parse returned ID / Add to collection
+                        acc_collection.Add(Parser.ParseAccountBasic(SteamID));
 
-                    //Save Collection
-                    Cache.SaveAccounts(acc_collection);
+                        //Save Collection
+                        Cache.SaveAccounts(acc_collection);
 
-                    //Reload ListBox
-                    RefreshListBox();
+                        //Reload ListBox
+                        RefreshListBox();
+                    }
+                    else
+                        MessageBox.Show("The Account already exists, please provide a different SteamID!", "Account already exists", MessageBoxButton.OK);
                 }
             }
             catch(Exception ex)

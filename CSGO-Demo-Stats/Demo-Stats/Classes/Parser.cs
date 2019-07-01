@@ -18,14 +18,10 @@ namespace Demo_Stats
             try
             {
                 string _json;
-
                 using (WebClient web = new WebClient())
                 {
                     _json = web.DownloadString(Resources.API_ProfileURL1 + APIKey.GetKeyFromFile() + Resources.API_ProfileURL2 + id);
                 }
-
-                //Verify if JSON string is complete, in case the user entered a wrong ID
-
                 return _json;
             }
             catch (Exception ex)
@@ -104,6 +100,14 @@ namespace Demo_Stats
             {
                 throw ex;
             }
+        }
+
+        public static bool AccountExists(string id, Accounts collection)
+        {
+            foreach (Account acc in collection)
+                if (id.Contains(acc.steamID))
+                    return true;
+            return false;
         }
 
         static string TrimAccount(string json)

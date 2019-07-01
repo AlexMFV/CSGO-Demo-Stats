@@ -10,7 +10,7 @@
 
     <Grid Background="#FF383838">
         <Button x:Name="btnOpenSettings" Content="Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="231" Height="46" Click="BtnOpenSettings_Click"/>
-        <ComboBox x:Name="cbbSelectedAccount" HorizontalAlignment="Left" Margin="1016,22,0,0" VerticalAlignment="Top" Width="247" SelectionChanged="CbbSelectedAccount_SelectionChanged"/>
+        <ComboBox x:Name="cbbSelectedAccount" Margin="0,22,17,0" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133"/>
 
     </Grid>
 </Page>
