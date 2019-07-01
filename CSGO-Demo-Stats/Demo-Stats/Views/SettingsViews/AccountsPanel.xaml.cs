@@ -35,7 +35,7 @@ namespace Demo_Stats.Views.SettingsViews
             acc_collection = Cache.LoadAccountsBasic();
 
             foreach (Account acc in acc_collection)
-                lstAccounts.Items.Add(new AccountListItem(acc.personaName, acc.steamID));
+                lstAccounts.Items.Add(new AccountListItem(acc.personaName, ("(" + acc.steamID + ")")));
         }
 
         private void BtnRefresh_Click(object sender, RoutedEventArgs e)

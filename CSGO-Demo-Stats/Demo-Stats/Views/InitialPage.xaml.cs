@@ -21,16 +21,48 @@ namespace Demo_Stats.Views
     public partial class InitialPage : Page
     {
         MainWindow main;
+        Accounts acc_collection;
+        AppSettings settings;
 
         public InitialPage(MainWindow _main)
         {
             InitializeComponent();
             main = _main;
+            acc_collection = Cache.LoadAccountsBasic();
+            settings = Cache.LoadSettings();
+            FillAccountsComboBox();
         }
 
         private void BtnOpenSettings_Click(object sender, RoutedEventArgs e)
         {
             main.Content = new Views.Settings(main);
+        }
+
+        public void FillAccountsComboBox()
+        {
+            cbbSelectedAccount.Items.Clear();
+
+            if (acc_collection.Count > 0)
+            {
+                foreach (Account acc in acc_collection)
+                    cbbSelectedAccount.Items.Add(acc.personaName);
+
+                cbbSelectedAccount.SelectedIndex = AppDataMethods.GetIndexFromSteamID(settings.selectedSteamID, acc_collection);
+            }
+            else
+            {
+                cbbSelectedAccount.Items.Add("<--- Please create account first --->");
+                cbbSelectedAccount.SelectedIndex = 0;
+            }
+        }
+
+        private void CbbSelectedAccount_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(cbbSelectedAccount.SelectedIndex >= 0 && acc_collection.Count > 0)
+            {
+                settings.selectedSteamID = acc_collection[cbbSelectedAccount.SelectedIndex].steamID;
+                Cache.SaveAppSettings(settings);
+            }
         }
     }
 }

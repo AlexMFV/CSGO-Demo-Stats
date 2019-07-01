@@ -31,16 +31,18 @@ namespace Demo_Stats
             string cacheDir = Path.Combine(appdata_dir, "alexmfv");
             Accounts collection = new Accounts();
 
-            //NEEDS FIX: If the Path exists but the file doesn't it enters the If but then cant read file
-            if (Directory.Exists(cacheDir))
+            if (File.Exists(cacheDir + "\\steam_accounts.json"))
             {
-                JArray arr = JArray.Parse(File.ReadAllText(cacheDir + "\\steam_accounts.json"));
-                foreach (JObject obj in arr)
+                if (new FileInfo(cacheDir + "\\steam_accounts.json").Length > 0)
                 {
-                    Account acc = new Account();
-                    acc.steamID = obj.Property("SteamID").Value.ToString();
-                    acc.personaName = obj.Property("Name").Value.ToString();
-                    collection.Add(acc);
+                    JArray arr = JArray.Parse(File.ReadAllText(cacheDir + "\\steam_accounts.json"));
+                    foreach (JObject obj in arr)
+                    {
+                        Account acc = new Account();
+                        acc.steamID = obj.Property("SteamID").Value.ToString();
+                        acc.personaName = obj.Property("Name").Value.ToString();
+                        collection.Add(acc);
+                    }
                 }
             }
 
@@ -56,16 +58,30 @@ namespace Demo_Stats
             string cacheDir = Path.Combine(appdata_dir, "alexmfv");
             Accounts collection = new Accounts();
 
-            //NEEDS FIX: If the Path exists but the file doesn't it enters the If but then cant read file
-            if (Directory.Exists(cacheDir))
+            if (File.Exists(cacheDir + "\\steam_accounts.json"))
             {
-                JArray arr = JArray.Parse(File.ReadAllText(cacheDir + "\\steam_accounts.json"));
-                foreach(JObject obj in arr)
+                if (new FileInfo(cacheDir + "\\steam_accounts.json").Length > 0)
                 {
-                    Account acc = Parser.ParseAccount(obj.Property("SteamID").Value.ToString());
-                    collection.Add(acc);
+                    JArray arr = JArray.Parse(File.ReadAllText(cacheDir + "\\steam_accounts.json"));
+                    foreach (JObject obj in arr)
+                    {
+                        Account acc = Parser.ParseAccount(obj.Property("SteamID").Value.ToString());
+                        collection.Add(acc);
+                    }
                 }
             }
+
+            return collection;
+        }
+
+        public static AppSettings LoadSettings()
+        {
+            string cacheDir = Path.Combine(appdata_dir, "alexmfv", "settings");
+            AppSettings collection = new AppSettings();
+
+            if (File.Exists(cacheDir + "\\user_data.json"))
+                if (new FileInfo(cacheDir + "\\user_data.json").Length > 0)
+                    collection = Parser.ParseAppSettings(JObject.Parse(File.ReadAllText(cacheDir + "\\user_data.json")));
 
             return collection;
         }
@@ -101,6 +117,25 @@ namespace Demo_Stats
                 }
 
                 arr.WriteTo(writer);
+            }
+        }
+
+        public static void SaveAppSettings(AppSettings settings)
+        {
+            string cacheDir = Path.Combine(appdata_dir, "alexmfv", "settings");
+
+            if (!Directory.Exists(cacheDir))
+                Directory.CreateDirectory(cacheDir);
+
+            //From Accounts Collection To JSON To File
+            using (StreamWriter file = File.CreateText(cacheDir + "\\user_data.json"))
+            using (JsonTextWriter writer = new JsonTextWriter(file))
+            {
+                JObject obj = new JObject();
+                obj.Add("SteamID", settings.selectedSteamID);
+                //toAdd.Add("<variable_name>", <value>); //Add All the necessary settings values
+
+                obj.WriteTo(writer);
             }
         }
 

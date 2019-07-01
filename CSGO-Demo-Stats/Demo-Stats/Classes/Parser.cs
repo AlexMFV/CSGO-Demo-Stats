@@ -112,6 +112,28 @@ namespace Demo_Stats
             json = json.Remove(json.Length-4, 3); //Final }
             return json;
         }
+
+        public static AppSettings ParseAppSettings(JObject obj)
+        {
+            try
+            {
+                AppSettings collection = new AppSettings();
+
+                foreach (KeyValuePair<string, JToken> pair in obj)
+                {
+                    switch (pair.Key)
+                    {
+                        case "SteamID": collection.selectedSteamID = (string)pair.Value; break;
+                        //Add other user settings here, as they are necessary
+                    }
+                }
+                return collection;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
     
