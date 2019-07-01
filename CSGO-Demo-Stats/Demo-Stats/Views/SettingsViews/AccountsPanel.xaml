@@ -12,7 +12,7 @@
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="10,20,0,0" Height="34" Click="BtnAdd_Click"/>
         <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="140,20,0,0" Height="34" Click="BtnRemove_Click"/>
         <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="270,20,0,0" Height="34" Click="BtnRefresh_Click"/>
-        <ListBox x:Name="lstAccounts" Height="626" Margin="15,89,0,5" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="1055">
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" x:Name="lstAccounts" Margin="15,84,10,10" Background="{x:Null}" BorderBrush="{x:Null}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -20,7 +20,7 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Grid.RowSpan="2" Orientation="Horizontal">
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -30,8 +30,8 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Text="{Binding Name}"/>
-                            <TextBlock Grid.Row="1" Text="{Binding SteamID}"/>
+                            <TextBlock Grid.Row="0" Foreground="White" Text="{Binding Name}"/>
+                            <TextBlock Grid.Row="1" Foreground="White" Text="{Binding SteamID}"/>
                         </Grid>
                     </StackPanel>
                 </DataTemplate>

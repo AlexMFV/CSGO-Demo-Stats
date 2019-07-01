@@ -75,18 +75,29 @@ namespace Demo_Stats
             try
             {
                 Account newAcc = new Account();
-                JObject objs = JObject.Parse(TrimAccount(GrabJSONString(id)));
-                foreach (KeyValuePair<string, JToken> pair in objs)
-                {
-                    switch (pair.Key)
-                    {
-                        case "steamid": newAcc.steamID = (string)pair.Value; break;
-                        case "personaname": newAcc.personaName = (string)pair.Value; break;
-                    }
+                string json = GrabJSONString(id);
+                JObject objs = new JObject();
 
-                    if (newAcc.steamID != null && newAcc.personaName != null)
-                        return newAcc;
+                //If it contains the empty array, then the SteamID is invalid
+                if (!json.Contains("\"players\":[]"))
+                {
+                    objs = JObject.Parse(TrimAccount(json));
+
+                    foreach (KeyValuePair<string, JToken> pair in objs)
+                    {
+                        switch (pair.Key)
+                        {
+                            case "steamid": newAcc.steamID = (string)pair.Value; break;
+                            case "personaname": newAcc.personaName = (string)pair.Value; break;
+                        }
+
+                        if (newAcc.steamID != null && newAcc.personaName != null)
+                            return newAcc;
+                    }
                 }
+                else
+                    throw new InvalidSteamID();
+
                 return newAcc;
             }
             catch (Exception ex)

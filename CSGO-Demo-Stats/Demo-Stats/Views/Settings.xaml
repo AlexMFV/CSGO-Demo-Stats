@@ -21,7 +21,7 @@
     </Page.Resources>
 
     <Grid Background="#FF383838">
-        <Frame x:Name="frame" Content="Frame" HorizontalAlignment="Left" Height="720" Margin="200,0,0,0" VerticalAlignment="Top" Width="1080"/>
+        <Frame x:Name="frame" Content="Frame" Margin="200,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         <Label x:Name="txtAccounts" Content="Accounts" HorizontalAlignment="Left" Margin="20,66,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Background="{x:Null}" MouseEnter="TxtAccounts_MouseEnter" MouseLeave="TxtAccounts_MouseLeave"/>
         <Label Content="Example 1" HorizontalAlignment="Left" Margin="20,106,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
         <Label Content="Example 2" HorizontalAlignment="Left" Margin="20,146,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>

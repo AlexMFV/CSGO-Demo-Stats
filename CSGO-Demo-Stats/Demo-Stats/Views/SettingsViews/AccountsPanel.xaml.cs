@@ -55,20 +55,27 @@ namespace Demo_Stats.Views.SettingsViews
         {
             string SteamID = null;
 
-            //Open DialogBox
-            Dialogs.NewAccountDialog prompt = new Dialogs.NewAccountDialog();
-            if (prompt.ShowDialog() == true)
+            try
             {
-                SteamID = prompt.Answer;
+                //Open DialogBox
+                Dialogs.NewAccountDialog prompt = new Dialogs.NewAccountDialog();
+                if (prompt.ShowDialog() == true)
+                {
+                    SteamID = prompt.Answer;
 
-                //Parse returned ID / Add to collection
-                acc_collection.Add(Parser.ParseAccountBasic(SteamID));
+                    //Parse returned ID / Add to collection
+                    acc_collection.Add(Parser.ParseAccountBasic(SteamID));
 
-                //Save Collection
-                Cache.SaveAccounts(acc_collection);
+                    //Save Collection
+                    Cache.SaveAccounts(acc_collection);
 
-                //Reload ListBox
-                RefreshListBox();
+                    //Reload ListBox
+                    RefreshListBox();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
