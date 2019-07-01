@@ -1,2 +1,6 @@
-﻿- Store in the file the ID and nickname ONLY (gather dynamically on app start)
-- Add Rank Class and Images
+﻿- Add Rank Class and Images
+- Packet Sniffer to gather Overwatch demos
+- Gather Demos automatically (send notification if game is closed)
+- Analyze the selected demos (Save in files.json)
+- Gather last rank by last recorded match (save on file last rank of account, with SteamID)
+- Fix Bugs, patch enhancements
