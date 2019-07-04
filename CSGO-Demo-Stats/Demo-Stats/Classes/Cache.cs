@@ -133,6 +133,7 @@ namespace Demo_Stats
             {
                 JObject obj = new JObject();
                 obj.Add("SteamID", settings.selectedSteamID);
+                obj.Add("SteamPath", settings.selectedSteamPath);
                 //toAdd.Add("<variable_name>", <value>); //Add All the necessary settings values
 
                 obj.WriteTo(writer);

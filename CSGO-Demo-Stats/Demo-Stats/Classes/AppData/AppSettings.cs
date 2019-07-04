@@ -10,5 +10,8 @@ namespace Demo_Stats
     {
         //The SteamID of the user that was last selected
         public string selectedSteamID { get; set; }
+
+        //The index of the path that is currently selected
+        public string selectedSteamPath { get; set; }
     }
 }

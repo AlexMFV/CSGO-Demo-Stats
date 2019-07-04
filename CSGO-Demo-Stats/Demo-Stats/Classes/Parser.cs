@@ -128,7 +128,8 @@ namespace Demo_Stats
                     switch (pair.Key)
                     {
                         case "SteamID": collection.selectedSteamID = (string)pair.Value; break;
-                        //Add other user settings here, as they are necessary
+                        case "SteamPath": collection.selectedSteamPath = (string)pair.Value; break;
+                            //Add other user settings here, as they are necessary
                     }
                 }
                 return collection;
