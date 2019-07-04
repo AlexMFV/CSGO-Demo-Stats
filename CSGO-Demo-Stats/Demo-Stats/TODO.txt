@@ -14,6 +14,7 @@ First Changes:
 			-Save on file the rank of the account, combined with SteamID
 
 Mid Changes:
+	-Fix Settings ListBoxes (So that the control's width and height changes dynamically, to the size of the items)
 	-Use "Boiler" to gather CSGO's (current steam account) demo URLs
 	-Download the demos from the gathered links (from above)
 	-Unpack the demos and add them to the csgo "demos" folder.
@@ -22,3 +23,5 @@ Mid Changes:
 
 Later Changes:
 	- Packet Sniffer to gather Overwatch demos
+
+	-ADD Variables, Controls, Colors, etc to "Resource Dictionaries"
