@@ -9,25 +9,21 @@
       Title="Settings">
 
     <Page.Resources>
-        <SolidColorBrush x:Key="HoverColor" Color="Green"/>
+        <SolidColorBrush x:Key="HoverColor" Color="LightCyan"/>
 
-        <SolidColorBrush x:Key="SelectedColor">
-            <SolidColorBrush.Color>
-                <Color R="90" G="148" B="90"/>
-            </SolidColorBrush.Color>
-        </SolidColorBrush>
+        <SolidColorBrush x:Key="HighlightColor" Color="Cyan"/>
 
         <SolidColorBrush x:Key="DefaultColor" Color="LightGray"/>
     </Page.Resources>
 
     <Grid Background="#FF383838">
-        <Frame x:Name="frame" Content="Frame" Margin="200,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-        <Label x:Name="txtAccounts" Content="Accounts" HorizontalAlignment="Left" Margin="20,66,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Background="{x:Null}" MouseEnter="TxtAccounts_MouseEnter" MouseLeave="TxtAccounts_MouseLeave"/>
-        <Label Content="Example 1" HorizontalAlignment="Left" Margin="20,106,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 2" HorizontalAlignment="Left" Margin="20,146,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 3" HorizontalAlignment="Left" Margin="20,186,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
-        <Label Content="Example 4" HorizontalAlignment="Left" Margin="20,226,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1"/>
-        <Button x:Name="btnBack" Content="&lt;--" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="20,10,0,0" Height="33" Click="BtnBack_Click"/>
+        <Frame x:Name="frame" Content="Frame" Margin="200,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+        <Label x:Name="txtAccounts" Content="Accounts" HorizontalAlignment="Left" Margin="20,66,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Background="{x:Null}" MouseEnter="TxtAccounts_MouseEnter" MouseLeave="TxtAccounts_MouseLeave" MouseLeftButtonUp="TxtAccounts_MouseLeftButtonUp" Width="142"/>
+        <Label x:Name="txtFolders" Content="Folders" HorizontalAlignment="Left" Margin="20,106,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" MouseEnter="TxtFolders_MouseEnter" MouseLeave="TxtFolders_MouseLeave" MouseLeftButtonUp="TxtFolders_MouseLeftButtonUp" Width="142"/>
+        <Label Content="Example 2" HorizontalAlignment="Left" Margin="20,146,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Width="142"/>
+        <Label Content="Example 3" HorizontalAlignment="Left" Margin="20,186,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Width="142"/>
+        <Label Content="Example 4" HorizontalAlignment="Left" Margin="20,226,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Width="142"/>
+        <Button x:Name="btnBack" Content="&lt;--" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="10,10,0,0" Height="33" Click="BtnBack_Click"/>
         <Ellipse Fill="#FFD1D1D1" HorizontalAlignment="Left" Height="1080" Margin="167,0,0,0" Stroke="#FFD1D1D1" VerticalAlignment="Center" Width="1"/>
     </Grid>
 

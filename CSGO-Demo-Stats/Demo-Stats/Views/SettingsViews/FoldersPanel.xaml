@@ -1,0 +1,24 @@
+﻿<Page x:Class="Demo_Stats.Views.SettingsViews.FoldersPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Demo_Stats.Views.SettingsViews"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1080"
+      Title="FoldersPanel">
+
+    <Grid Background="#FF383838">
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" x:Name="lstFolders" Margin="15,84,10,10" Background="{x:Null}" BorderBrush="{x:Null}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <Button x:Name="btnAdd" Content="Add Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="10,20,0,0" Height="34" Click="BtnAdd_Click"/>
+        <Button x:Name="btnRemove" Content="Remove Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="140,20,0,0" Height="34"/>
+    </Grid>
+</Page>

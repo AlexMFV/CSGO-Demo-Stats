@@ -62,6 +62,7 @@
     <Compile Include="Classes\AppData\AppDataMethods.cs" />
     <Compile Include="Classes\AppData\AppSettings.cs" />
     <Compile Include="Classes\Misc\AccountListItem.cs" />
+    <Compile Include="Classes\Misc\SettingsPanels.cs" />
     <Compile Include="Classes\Web\WebAccess.cs" />
     <Compile Include="Dialogs\NewAccountDialog.xaml.cs">
       <DependentUpon>NewAccountDialog.xaml</DependentUpon>
@@ -75,6 +76,9 @@
     </Compile>
     <Compile Include="Views\SettingsViews\AccountsPanel.xaml.cs">
       <DependentUpon>AccountsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsViews\FoldersPanel.xaml.cs">
+      <DependentUpon>FoldersPanel.xaml</DependentUpon>
     </Compile>
     <Page Include="Dialogs\NewAccountDialog.xaml">
       <SubType>Designer</SubType>
@@ -107,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SettingsViews\AccountsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsViews\FoldersPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
