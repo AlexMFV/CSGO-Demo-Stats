@@ -20,7 +20,12 @@ namespace Demo_Stats
     public class IncorrectSteamID : Exception
     {
         public IncorrectSteamID() : base(String.Format("The entered SteamID64 does not exist," +
-            " please enter a new one and try again!"))
-        { }
+            " please enter a new one and try again!")) { }
+    }
+
+    public class SteamPathNotFound : Exception
+    {
+        public SteamPathNotFound() : base(String.Format("Steam Folder was not found, please verify if you" +
+            "have Steam installed! Otherwise provide a different \"demos\" folder.")) { }
     }
 }

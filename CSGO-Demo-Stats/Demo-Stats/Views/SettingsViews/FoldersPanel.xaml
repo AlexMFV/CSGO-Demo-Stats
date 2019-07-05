@@ -19,6 +19,6 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
         <Button x:Name="btnAdd" Content="Add Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="10,20,0,0" Height="34" Click="BtnAdd_Click"/>
-        <Button x:Name="btnRemove" Content="Remove Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="140,20,0,0" Height="34"/>
+        <Button x:Name="btnRemove" Content="Remove Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="140,20,0,0" Height="34" Click="BtnRemove_Click"/>
     </Grid>
 </Page>

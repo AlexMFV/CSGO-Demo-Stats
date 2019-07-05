@@ -23,6 +23,7 @@ namespace Demo_Stats.Views
         MainWindow main;
         Accounts acc_collection;
         AppSettings settings;
+        Folders paths;
 
         public InitialPage(MainWindow _main)
         {
@@ -30,6 +31,15 @@ namespace Demo_Stats.Views
             main = _main;
             acc_collection = Cache.LoadAccountsBasic();
             settings = Cache.LoadSettings();
+
+            if (!Cache.CheckCSGOPath())
+                MessageBox.Show(new SteamPathNotFound().Message, "Not Found!", MessageBoxButton.OK);
+            else
+            {
+                paths = Cache.LoadFolders();
+                FillFoldersComboBox();
+            }
+
             FillAccountsComboBox();
         }
 
@@ -61,6 +71,33 @@ namespace Demo_Stats.Views
             if(cbbSelectedAccount.SelectedIndex >= 0 && acc_collection.Count > 0)
             {
                 settings.selectedSteamID = acc_collection[cbbSelectedAccount.SelectedIndex].steamID;
+                Cache.SaveAppSettings(settings);
+            }
+        }
+
+        public void FillFoldersComboBox()
+        {
+            cbbSelectedAccount.Items.Clear();
+
+            if (paths.Count > 0)
+            {
+                foreach (string path in paths)
+                    cbbFolders.Items.Add(path);
+
+                cbbFolders.SelectedIndex = AppDataMethods.GetIndexFromSteamPath(settings.selectedSteamPath, paths);
+            }
+            else
+            {
+                cbbSelectedAccount.Items.Add("<--- Please add a demos path first --->");
+                cbbSelectedAccount.SelectedIndex = 0;
+            }
+        }
+
+        private void CbbFolders_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbbFolders.SelectedIndex >= 0 && paths.Count > 0)
+            {
+                settings.selectedSteamPath = paths[cbbFolders.SelectedIndex];
                 Cache.SaveAppSettings(settings);
             }
         }

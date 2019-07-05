@@ -16,5 +16,13 @@ namespace Demo_Stats
                     return i;
             return -1;
         }
+
+        public static int GetIndexFromSteamPath(string path, Folders collection)
+        {
+            for (int i = 0; i < collection.Count; i++)
+                if (collection[i] == path)
+                    return i;
+            return -1;
+        }
     }
 }

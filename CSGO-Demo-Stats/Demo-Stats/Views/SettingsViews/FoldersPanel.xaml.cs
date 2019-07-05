@@ -21,20 +21,47 @@ namespace Demo_Stats.Views.SettingsViews
     public partial class FoldersPanel : Page
     {
         Settings settings;
+        Folders folders;
 
         public FoldersPanel(Settings _settings)
         {
             InitializeComponent();
             settings = _settings;
-            this.lstFolders.Items.Add("C://steamid//sdasdk/askjdasds/1");
-            this.lstFolders.Items.Add("C://steamid//sdasdk/askjdasds/2");
-            this.lstFolders.Items.Add("C://steamid//sdasdk/askjdasds/3");
-            this.lstFolders.Items.Add("C://steamid//sdasdk/askjdasds/4");
+            folders = Cache.LoadFolders();
+            UpdateFoldersComboBox();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
 
+                if (result == System.Windows.Forms.DialogResult.OK)
+                {
+                    folders.Add(dialog.SelectedPath);
+                    Cache.SaveFolders(folders);
+                    UpdateFoldersComboBox();
+                }
+            }
+        }
+
+        public void UpdateFoldersComboBox()
+        {
+            lstFolders.Items.Clear();
+
+            foreach (string path in folders)
+                lstFolders.Items.Add(path);
+        }
+
+        private void BtnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnRemove.IsEnabled && lstFolders.SelectedIndex != -1)
+            {
+                folders.RemoveAt(lstFolders.SelectedIndex);
+                Cache.SaveFolders(folders);
+                UpdateFoldersComboBox();
+            }
         }
     }
 }
