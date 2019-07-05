@@ -11,12 +11,18 @@
     <Grid Background="#FF383838">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="513*"/>
-            <ColumnDefinition Width="127*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="btnOpenSettings" Content="Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="63" Height="34" Click="BtnOpenSettings_Click"/>
         <ComboBox x:Name="cbbSelectedAccount" Margin="0,22,17,0" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133" Grid.Column="1"/>
-        <ComboBox x:Name="cbbFolders" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="989" SelectionChanged="CbbFolders_SelectionChanged"/>
-        <CheckBox x:Name="chkAllFolders" Foreground="White" Content="Show All Folders" HorizontalAlignment="Left" Margin="1009,83,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cbbFolders" Margin="10,80,281,0" VerticalAlignment="Top" SelectionChanged="CbbFolders_SelectionChanged"/>
+        <CheckBox x:Name="chkAllFolders" Foreground="White" Content="Show All Folders" Margin="0,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="271"/>
+        <ListView Margin="10,107,10,10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

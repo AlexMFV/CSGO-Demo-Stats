@@ -1,8 +1,5 @@
-﻿Next Changes:
-	-Allow to select different demo folders, and store the paths in files
-	-Gather Steam Folder from Registry / Find CSGO Folder
-	
-	[For test purposes, show tree view or list box with file names inside the folder, to check if it can gather demos]
+﻿Next Changes:	
+	-Show tree view or list box with file names inside the folder, to check if it can gather demos (For Testing)
 
 First Changes:
 	-Create Demo Class
