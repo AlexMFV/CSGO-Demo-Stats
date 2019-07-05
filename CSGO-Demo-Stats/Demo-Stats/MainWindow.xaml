@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo_Stats"
         mc:Ignorable="d"
-        Title="CSGO Demo Stats" Height="720" Width="1280">
-    <Frame x:Name="MainFrame" Content="CSGO Demo Stats" Margin="0,0,0,0"/>
+        Title="CSGO Demo Stats" Height="800" Width="1280">
+    <Frame x:Name="MainFrame" Content="CSGO Demo Stats" Background="#FF303030"/>
 </Window>
