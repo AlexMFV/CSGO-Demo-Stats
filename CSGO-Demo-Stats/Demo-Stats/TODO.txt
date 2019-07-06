@@ -1,11 +1,13 @@
-﻿Next Changes:	
-	-Show tree view or list box with file names inside the folder, to check if it can gather demos (For Testing)
+﻿Next Changes:
+
 
 First Changes:
 	-Create Demo Class
 	-Create Player Class
 	-Create Rank Class and corresponding Images
 	-Gather Information from the demos.
+		-Let the user set a Status for the demo (Watched, Corrupted, etc)
+		-Let the user add and save comments on the demo
 		-Store the gathered information in the class
 		-Gather rank by last recorded match
 			-Save on file the rank of the account, combined with SteamID
