@@ -1,5 +1,11 @@
 ﻿Next Changes:
+	-When the page loads, see if there are new demos on the selected folder. (if the "Show All folder" checkbox
+	is selected, add all the new demos to the list, from all the folders.)
+	-Compare with the saved jsons and Save the new demos.
+	-Load from the jsons the demos that exist
 
+!!!!!!!! DEMO SOURCE IS HARDCODED TO BE VALVE DEMO, CHANGE LATER (DemoSearch.cs) !!!!!!!!
+				!!!!!!!! DATE IS ALSO HARDCODED TO BE CURRENT DATE !!!!!!!!
 
 First Changes:
 	-Create Demo Class

@@ -62,6 +62,8 @@
     </ApplicationDefinition>
     <Compile Include="Classes\AppData\AppDataMethods.cs" />
     <Compile Include="Classes\AppData\AppSettings.cs" />
+    <Compile Include="Classes\Demos\Demos.cs" />
+    <Compile Include="Classes\Demos\DemoSearch.cs" />
     <Compile Include="Classes\Misc\AccountListItem.cs" />
     <Compile Include="Classes\Misc\Folders.cs" />
     <Compile Include="Classes\Misc\SettingsPanels.cs" />
@@ -98,7 +100,7 @@
     <Compile Include="Classes\Account\Accounts.cs" />
     <Compile Include="Classes\API\APIKey.cs" />
     <Compile Include="Classes\Cache.cs" />
-    <Compile Include="Classes\Demo.cs" />
+    <Compile Include="Classes\Demos\Demo.cs" />
     <Compile Include="Classes\Parser.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

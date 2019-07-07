@@ -24,6 +24,7 @@ namespace Demo_Stats.Views
         Accounts acc_collection;
         AppSettings settings;
         Folders paths;
+        Demos demos = new Demos();
 
         public InitialPage(MainWindow _main)
         {
@@ -41,6 +42,10 @@ namespace Demo_Stats.Views
             }
 
             FillAccountsComboBox();
+            //Load the demos from Cache first
+            demos = DemoSearch.SearchNewDemos(cbbFolders.SelectedIndex, paths, demos); //Then Search for new demos, to prevent duplicates
+
+            FillDemoList();
         }
 
         private void BtnOpenSettings_Click(object sender, RoutedEventArgs e)
@@ -100,6 +105,21 @@ namespace Demo_Stats.Views
                 settings.selectedSteamPath = paths[cbbFolders.SelectedIndex];
                 Cache.SaveAppSettings(settings);
             }
+        }
+
+        public void UpdateDemoCount()
+        {
+            lblDemoCount.Content = lstDemos.Items.Count + " Demo(s)";
+        }
+
+        public void FillDemoList()
+        {
+            lstDemos.Items.Clear();
+            foreach(Demo demo in demos)
+            {
+                lstDemos.Items.Add(demo);
+            }
+            UpdateDemoCount();
         }
     }
 }

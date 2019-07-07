@@ -12,24 +12,36 @@
         <ComboBox x:Name="cbbSelectedAccount" Margin="0,22,17,0" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133" Grid.Column="1"/>
         <ComboBox x:Name="cbbFolders" Margin="10,80,281,0" VerticalAlignment="Top" SelectionChanged="CbbFolders_SelectionChanged"/>
         <CheckBox x:Name="chkAllFolders" Foreground="White" Content="Show All Folders" Margin="0,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="271"/>
-        <ListView x:Name="lstDemos" Margin="10,107,10,60" Background="#FF212121">
+        <ListView x:Name="lstDemos" Margin="10,107,10,60" Background="#FF212121" Foreground="#FFE0E0E0">
             <ListView.View>
                 <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="GridViewColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
                     <!--<GridViewColumn x:Name="colType"/> To identify if it's a Valve Demo or not-->
-                    <GridViewColumn x:Name="colDate" Header="Date" Width="100"/>
-                    <GridViewColumn x:Name="colName" Header="Name" Width="400"/>
-                    <GridViewColumn x:Name="colMap" Header="Map" Width="80"/>
+                    <GridViewColumn x:Name="colSource" Header="Source" Width="60" DisplayMemberBinding="{Binding source}"/>
+                    <GridViewColumn x:Name="colDate" Header="Date" Width="100" DisplayMemberBinding="{Binding date}"/>
+                    <GridViewColumn x:Name="colName" Header="Name" Width="330" DisplayMemberBinding="{Binding name}"/>
+                    <GridViewColumn x:Name="colMap" Header="Map" Width="80" DisplayMemberBinding="{Binding map}"/>
                     <!--<GridViewColumn x:Name="colTeam1" Header="Team 1" Width="80"/> Team 1 Name (Only applies for Faceit, ESEA, etc)-->
                     <!--<GridViewColumn x:Name="colTeam2" Header="Team 2" Width="80"/> Team 2 Name (Only applies for Faceit, ESEA, etc)-->
+                    <GridViewColumn x:Name="colDuration" Header="Duration" Width="90" DisplayMemberBinding="{Binding duration}"/>
+                    <GridViewColumn x:Name="colHostname" Header="Hostname" Width="265" DisplayMemberBinding="{Binding hostname}"/>
+                    <GridViewColumn x:Name="colClient" Header="Client" Width="100" DisplayMemberBinding="{Binding demo_client}"/>
+                    <GridViewColumn x:Name="colTickRate" Header="TR" Width="40" DisplayMemberBinding="{Binding server_tickrate}"/>
+                    <GridViewColumn x:Name="colFrameRate" Header="FR" Width="40" DisplayMemberBinding="{Binding demo_framerate}"/>
+                    <GridViewColumn x:Name="colTicks" Header="Ticks" Width="80" DisplayMemberBinding="{Binding demo_ticks}"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <WrapPanel HorizontalAlignment="Stretch" Margin="0,0,0,24" Width="1280" Height="31" VerticalAlignment="Bottom">
             <UniformGrid Columns="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="1136">
-                <Button Content="Button" Margin="10,0,10,0" Height="25" Width="555"/>
-                <Button Content="Button" Margin="0,0,10,0" Height="25" Width="555"/>
+                <Button x:Name="btnShowMore" Content="Show More Demos" Margin="10,0,10,0" Height="25" Width="555"/>
+                <Button x:Name="btnShowAll" Content="Show All Demos" Margin="0,0,10,0" Height="25" Width="555"/>
             </UniformGrid>
-            <Label Content="Label" Margin="0,0,0,0" Foreground="White" FontWeight="Bold" FontFamily="Verdana" FontSize="11" Height="23" HorizontalAlignment="Right" Width="140"/>
+            <Label x:Name="lblDemoCount" Content="0 Demo(s)" Margin="0,0,0,0" Foreground="White" FontFamily="Verdana" FontSize="16" Height="30" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Width="128"/>
         </WrapPanel>
     </Grid>
 </Page>
