@@ -139,7 +139,8 @@ namespace Demo_Stats
                 JObject obj = new JObject();
                 obj.Add("SteamID", settings.selectedSteamID);
                 obj.Add("SteamPath", settings.selectedSteamPath);
-                //toAdd.Add("<variable_name>", <value>); //Add All the necessary settings values
+                obj.Add("ShowAll", settings.isShowAllActive);
+                //obj.Add("<variable_name>", <value>); //Add All the necessary settings values
 
                 obj.WriteTo(writer);
             }
@@ -218,6 +219,57 @@ namespace Demo_Stats
                 }
             }
             return true;
+        }
+
+        #endregion
+
+        #region Demos
+
+        public static Demos LoadDemos()
+        {
+            return new Demos();
+            //string cacheDir = Path.Combine(appdata_dir, "alexmfv");
+            //Accounts collection = new Accounts();
+
+            //if (File.Exists(cacheDir + "\\steam_accounts.json"))
+            //{
+            //    if (new FileInfo(cacheDir + "\\steam_accounts.json").Length > 0)
+            //    {
+            //        JArray arr = JArray.Parse(File.ReadAllText(cacheDir + "\\steam_accounts.json"));
+            //        foreach (JObject obj in arr)
+            //        {
+            //            Account acc = Parser.ParseAccount(obj.Property("SteamID").Value.ToString());
+            //            collection.Add(acc);
+            //        }
+            //    }
+            //}
+
+            //return collection;
+        }
+
+        public static void SaveDemos(Demos collection)
+        {
+            //string cacheDir = Path.Combine(appdata_dir, "alexmfv");
+
+            //if (!Directory.Exists(cacheDir))
+            //    Directory.CreateDirectory(cacheDir);
+
+            ////From Accounts Collection To JSON To File
+            //using (StreamWriter file = File.CreateText(cacheDir + "\\steam_accounts.json"))
+            //using (JsonTextWriter writer = new JsonTextWriter(file))
+            //{
+            //    JArray arr = new JArray();
+
+            //    foreach (Account acc in collection)
+            //    {
+            //        JObject toAdd = new JObject();
+            //        toAdd.Add("SteamID", acc.steamID);
+            //        toAdd.Add("Name", acc.personaName);
+            //        arr.Add(toAdd);
+            //    }
+
+            //    arr.WriteTo(writer);
+            //}
         }
 
         #endregion

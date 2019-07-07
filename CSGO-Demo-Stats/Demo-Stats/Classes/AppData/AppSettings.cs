@@ -13,5 +13,8 @@ namespace Demo_Stats
 
         //The index of the path that is currently selected
         public string selectedSteamPath { get; set; }
+
+        //If the combobox's checkbox is checked or not
+        public bool isShowAllActive { get; set; }
     }
 }

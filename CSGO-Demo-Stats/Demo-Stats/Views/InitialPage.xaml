@@ -11,7 +11,7 @@
         <Button x:Name="btnOpenSettings" Content="Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="70" Height="25" Click="BtnOpenSettings_Click"/>
         <ComboBox x:Name="cbbSelectedAccount" Margin="0,22,17,0" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133" Grid.Column="1"/>
         <ComboBox x:Name="cbbFolders" Margin="10,80,281,0" VerticalAlignment="Top" SelectionChanged="CbbFolders_SelectionChanged"/>
-        <CheckBox x:Name="chkAllFolders" Foreground="White" Content="Show All Folders" Margin="0,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="271"/>
+        <CheckBox x:Name="chkAllFolders" Foreground="White" Content="Show All Folders" Margin="0,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="271" Checked="ChkAllFolders_Checked" Unchecked="ChkAllFolders_Unchecked"/>
         <ListView x:Name="lstDemos" Margin="10,107,10,60" Background="#FF212121" Foreground="#FFE0E0E0">
             <ListView.View>
                 <GridView>

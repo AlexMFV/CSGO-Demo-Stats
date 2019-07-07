@@ -129,6 +129,7 @@ namespace Demo_Stats
                     {
                         case "SteamID": collection.selectedSteamID = (string)pair.Value; break;
                         case "SteamPath": collection.selectedSteamPath = (string)pair.Value; break;
+                        case "ShowAll": collection.isShowAllActive = (bool)pair.Value; break;
                             //Add other user settings here, as they are necessary
                     }
                 }

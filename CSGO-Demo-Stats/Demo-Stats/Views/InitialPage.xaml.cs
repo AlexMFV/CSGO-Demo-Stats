@@ -24,7 +24,7 @@ namespace Demo_Stats.Views
         Accounts acc_collection;
         AppSettings settings;
         Folders paths;
-        Demos demos = new Demos();
+        Demos demos;
 
         public InitialPage(MainWindow _main)
         {
@@ -40,12 +40,12 @@ namespace Demo_Stats.Views
                 paths = Cache.LoadFolders();
                 FillFoldersComboBox();
             }
-
             FillAccountsComboBox();
+            
             //Load the demos from Cache first
-            demos = DemoSearch.SearchNewDemos(cbbFolders.SelectedIndex, paths, demos); //Then Search for new demos, to prevent duplicates
-
-            FillDemoList();
+            
+            //demos = DemoSearch.SearchNewDemos(cbbFolders.SelectedIndex, paths, demos); //Then Search for new demos, to prevent duplicates
+            //FillDemoList();
         }
 
         private void BtnOpenSettings_Click(object sender, RoutedEventArgs e)
@@ -89,7 +89,10 @@ namespace Demo_Stats.Views
                 foreach (string path in paths)
                     cbbFolders.Items.Add(path);
 
-                cbbFolders.SelectedIndex = AppDataMethods.GetIndexFromSteamPath(settings.selectedSteamPath, paths);
+                if (!settings.isShowAllActive)
+                    cbbFolders.SelectedIndex = AppDataMethods.GetIndexFromSteamPath(settings.selectedSteamPath, paths);
+                else
+                    chkAllFolders.IsChecked = true;
             }
             else
             {
@@ -104,6 +107,9 @@ namespace Demo_Stats.Views
             {
                 settings.selectedSteamPath = paths[cbbFolders.SelectedIndex];
                 Cache.SaveAppSettings(settings);
+                demos = Cache.LoadDemos();
+                demos = DemoSearch.SearchNewDemos(cbbFolders.SelectedIndex, paths, demos);
+                FillDemoList();
             }
         }
 
@@ -120,6 +126,25 @@ namespace Demo_Stats.Views
                 lstDemos.Items.Add(demo);
             }
             UpdateDemoCount();
+        }
+
+        private void ChkAllFolders_Checked(object sender, RoutedEventArgs e)
+        {
+            cbbFolders.IsEnabled = false;
+            cbbFolders.SelectedIndex = -1;
+            settings.isShowAllActive = true;
+            Cache.SaveAppSettings(settings);
+            demos = new Demos();
+            demos = DemoSearch.SearchNewDemos(paths, demos);
+            FillDemoList();
+        }
+
+        private void ChkAllFolders_Unchecked(object sender, RoutedEventArgs e)
+        {
+            cbbFolders.IsEnabled = true;
+            settings.isShowAllActive = false;
+            Cache.SaveAppSettings(settings);
+            cbbFolders.SelectedIndex = AppDataMethods.GetIndexFromSteamPath(settings.selectedSteamPath, paths);
         }
     }
 }

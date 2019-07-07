@@ -18,7 +18,7 @@ namespace Demo_Stats
         /// <returns>Returns a collection of Demos</returns>
         public static Demos SearchNewDemos(int idx, Folders col, Demos demos)
         {
-            return RetrieveDemosFromFolder(col[idx], demos);
+             return RetrieveDemosFromFolder(col[idx], demos);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Demo_Stats
             return demos;
         }
 
-        public static Demos RetrieveDemosFromFolder(string path, Demos demos)
+        private static Demos RetrieveDemosFromFolder(string path, Demos demos)
         {
             foreach (string filename in Directory.GetFiles(path))
             {
@@ -69,13 +69,13 @@ namespace Demo_Stats
             return demos;
         }
 
-        public static string ConvertDuration(int seconds)
+        private static string ConvertDuration(int seconds)
         {
             TimeSpan time = TimeSpan.FromSeconds(seconds);
             return time.ToString(@"hh\:mm\:ss");
         }
 
-        public static bool DemoExists(string name, Demos demos)
+        private static bool DemoExists(string name, Demos demos)
         {
             if (demos.Count > 0)
             {
