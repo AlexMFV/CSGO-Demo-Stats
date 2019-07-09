@@ -10,8 +10,8 @@
 
     <Grid Background="{DynamicResource BackgroundGrey}">
         <Button x:Name="btnOpenSettings" Content="Settings" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="70" Height="25" Click="BtnOpenSettings_Click"/>
-        <ComboBox x:Name="cbbSelectedAccount" Margin="0,5,5,0" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133"/>
-        <ComboBox x:Name="cbbFolders" Margin="5,80,281,0" VerticalAlignment="Top" SelectionChanged="CbbFolders_SelectionChanged"/>
+        <ComboBox x:Name="cbbSelectedAccount" Style="{StaticResource ComboBoxDarkMode}" Margin="0,5,5,0" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133"/>
+        <ComboBox x:Name="cbbFolders" Style="{StaticResource ComboBoxDarkMode}" Margin="5,80,281,0" VerticalAlignment="Top" SelectionChanged="CbbFolders_SelectionChanged"/>
         <CheckBox x:Name="chkAllFolders" Foreground="White" Content="Show All Folders" Margin="0,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="271" Checked="ChkAllFolders_Checked" Unchecked="ChkAllFolders_Unchecked"/>
         <DataGrid Style="{StaticResource DataGridDarkMode}" ColumnHeaderStyle="{StaticResource DataGridHeader}" x:Name="lstDemos" Margin="0,107,0,60" Background="{DynamicResource BackgroundGrey}">
             <DataGrid.Columns>
