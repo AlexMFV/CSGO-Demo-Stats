@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:local="clr-namespace:Demo_Stats"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
@@ -23,7 +24,9 @@
         <Label Content="Example 2" HorizontalAlignment="Left" Margin="20,146,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Width="142"/>
         <Label Content="Example 3" HorizontalAlignment="Left" Margin="20,186,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Width="142"/>
         <Label Content="Example 4" HorizontalAlignment="Left" Margin="20,226,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFD1D1D1" Width="142"/>
-        <Button x:Name="btnBack" Content="&lt;--" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="10,10,0,0" Height="33" Click="BtnBack_Click"/>
+        <Button x:Name="btnBack" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="15,15,0,0" Height="40" Click="BtnBack_Click">
+            <iconPacks:PackIconMaterial Kind="ArrowLeftBold" Foreground="{DynamicResource SoftWhite}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Button>
         <Ellipse Fill="#FFD1D1D1" HorizontalAlignment="Left" Height="1080" Margin="167,0,0,0" Stroke="#FFD1D1D1" VerticalAlignment="Center" Width="1"/>
     </Grid>
 

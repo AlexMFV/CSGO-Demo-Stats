@@ -16,7 +16,7 @@
         <DataGrid Style="{StaticResource DataGridDarkMode}" ColumnHeaderStyle="{StaticResource DataGridHeader}" x:Name="lstDemos" Margin="0,107,0,60" Background="{DynamicResource BackgroundGrey}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Source" Binding="{Binding source}"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding date}"/>
+                <DataGridTextColumn Header="Date" x:Name="colDate" Binding="{Binding date}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
                 <DataGridTextColumn Header="Map" Binding="{Binding map}"/>
                 <!--<DataGridTextColumn Header="Team 1" Binding="{Binding source}"/>-->

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,10 +29,10 @@ namespace Demo_Stats.Views
 
         public InitialPage(MainWindow _main)
         {
-            InitializeComponent();
             main = _main;
             acc_collection = Cache.LoadAccountsBasic();
             settings = Cache.LoadSettings();
+            InitializeComponent();
 
             if (!Cache.CheckCSGOPath())
                 MessageBox.Show(new SteamPathNotFound().Message, "Not Found!", MessageBoxButton.OK);
@@ -41,7 +42,8 @@ namespace Demo_Stats.Views
                 FillFoldersComboBox();
             }
             FillAccountsComboBox();
-            
+
+            //Sort the DataGrid
             //Load the demos from Cache first
         }
 
@@ -122,7 +124,7 @@ namespace Demo_Stats.Views
             {
                 lstDemos.Items.Add(demo);
             }
-            //lstDemos.DataContext = demos;
+            //DataContext = demos;
             UpdateDemoCount();
         }
 

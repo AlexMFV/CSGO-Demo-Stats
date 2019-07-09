@@ -18,38 +18,38 @@ namespace Demo_Stats
         public string duration { get; set; }
         public string hostname { get; set; }
         public string demo_client { get; set; } //GOTV Demo
-        public string server_tickrate { get; set; }
-        public string demo_framerate { get; set; }
-        public string demo_ticks { get; set; }
+        public int server_tickrate { get; set; }
+        public int demo_framerate { get; set; }
+        public int demo_ticks { get; set; }
 
         //Other Values
         public string team1_name { get; set; }
         public string team2_name { get; set; }
         public string status { get; set; }
-        public string score_t1 { get; set; }
-        public string score_t2 { get; set; }
-        public string bans { get; set; }
-        public string htlv_rating { get; set; }
-        public string esea_rws { get; set; } //Round Win Share
-        public string k1 { get; set; }
-        public string k2 { get; set; }
-        public string k3 { get; set; }
-        public string k4 { get; set; }
-        public string k5 { get; set; }
-        public string kills { get; set; }
-        public string trade_kills { get; set; }
-        public string jump_kills { get; set; }
-        public string crouch_kills { get; set; }
-        public string avg_damage_round { get; set; }
-        public string avg_kills_round { get; set; }
-        public string avg_deaths_round { get; set; }
-        public string avg_assists_round { get; set; }
-        public string total_damage_health { get; set; }
-        public string total_damage_armor { get; set; }
-        public string clutches_won { get; set; }
-        public string bombs_defused { get; set; }
-        public string bombs_exploded { get; set; }
-        public string bombs_planted { get; set; }
+        public int score_t1 { get; set; }
+        public int score_t2 { get; set; }
+        public int bans { get; set; }
+        public double htlv_rating { get; set; }
+        public double esea_rws { get; set; } //Round Win Share
+        public int k1 { get; set; }
+        public int k2 { get; set; }
+        public int k3 { get; set; }
+        public int k4 { get; set; }
+        public int k5 { get; set; }
+        public int kills { get; set; }
+        public int trade_kills { get; set; }
+        public int jump_kills { get; set; }
+        public int crouch_kills { get; set; }
+        public double avg_damage_round { get; set; }
+        public double avg_kills_round { get; set; }
+        public double avg_deaths_round { get; set; }
+        public double avg_assists_round { get; set; }
+        public int total_damage_health { get; set; }
+        public int total_damage_armor { get; set; }
+        public int clutches_won { get; set; }
+        public int bombs_defused { get; set; }
+        public int bombs_exploded { get; set; }
+        public int bombs_planted { get; set; }
         public string comment { get; set; }
 
         //For now i'll just leave these variables, later on i'll need to add, rounds,
@@ -76,7 +76,7 @@ namespace Demo_Stats
         /// <param name="_framerate">Framerate of the demo</param>
         /// <param name="_ticks">Number of total ticks of the demo</param>
         public Demo(string _source, string _name, string _date, string _map, string _duration, string _hostname,
-            string _demo_client, string _server_tickrate, string _framerate, string _ticks)
+            string _demo_client, int _server_tickrate, int _framerate, int _ticks)
         {
             source = _source;
             name = _name;

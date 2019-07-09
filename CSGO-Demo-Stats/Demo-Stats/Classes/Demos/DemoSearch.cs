@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DemoInfo;
+using ProtoBuf;
 
 namespace Demo_Stats
 {
     public class DemoSearch
     {
+        
         /// <summary>
         /// Searches in the selected folder for new demos
         /// </summary>
@@ -53,13 +55,13 @@ namespace Demo_Stats
                             newDemo.name = demoName;
                             newDemo.source = "Valve"; //HARDCODED
                             newDemo.map = parser.Map;
-                            newDemo.date = DateTime.Now.ToShortDateString(); //HARDCODED
+                            newDemo.date = GetDataFromDemoInfo(filename + ".info"); //HARDCODED
                             newDemo.demo_client = parser.Header.ClientName;
                             newDemo.hostname = parser.Header.ServerName;
                             newDemo.duration = ConvertDuration((int)parser.Header.PlaybackTime);
-                            newDemo.server_tickrate = ((int)(parser.Header.PlaybackTicks / parser.Header.PlaybackTime)).ToString();
-                            newDemo.demo_framerate = Math.Ceiling(parser.TickRate).ToString();
-                            newDemo.demo_ticks = parser.Header.PlaybackTicks.ToString();
+                            newDemo.server_tickrate = (int)(parser.Header.PlaybackTicks / parser.Header.PlaybackTime);
+                            newDemo.demo_framerate = (int)Math.Ceiling(parser.TickRate);
+                            newDemo.demo_ticks = parser.Header.PlaybackTicks;
                             demos.Add(newDemo);
                         }
                     }
@@ -69,10 +71,20 @@ namespace Demo_Stats
             return demos;
         }
 
+        private static string GetDataFromDemoInfo(string path)
+        {
+            using (FileStream file = File.OpenRead(path))
+            {
+                CDataGCCStrike15_v2_MatchInfo matchinfo = Serializer.Deserialize<CDataGCCStrike15_v2_MatchInfo>(file);
+                DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                return epochStart.AddSeconds(matchinfo.matchtime).ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss");
+            }
+        }
+
         private static string ConvertDuration(int seconds)
         {
             TimeSpan time = TimeSpan.FromSeconds(seconds);
-            return time.ToString(@"hh\:mm\:ss");
+            return time.ToString("HH:mm:ss");
         }
 
         private static bool DemoExists(string name, Demos demos)
