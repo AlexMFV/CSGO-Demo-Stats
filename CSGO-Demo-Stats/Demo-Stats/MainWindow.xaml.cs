@@ -14,44 +14,24 @@ using System.Windows.Shapes;
 using DemoInfo;
 using Newtonsoft.Json;
 using Demo_Stats.Properties;
-using System.Drawing;
 using System.Net;
 using System.IO;
+using MahApps.Metro.Controls;
 
 namespace Demo_Stats
 {
     /// <summary>
     /// Interação lógica para MainWindow.xam
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public Accounts accounts_collection = new Accounts();
 
         public MainWindow()
         {
             InitializeComponent();
-            this.Content = new Views.InitialPage(this);
-        }
-
-        private void BtnRefresh_MouseUp1(object sender, MouseButtonEventArgs e)
-        {
-        }
-
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Cache.SaveAccounts(accounts_collection);
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void OpenSettings()
-        {
-            this.Content = new Settings();
+            this.TitleForeground = new SolidColorBrush(Colors.Black);
+            this.MainFrame.Content = new Views.InitialPage(this);
         }
     }
 }

@@ -43,9 +43,6 @@ namespace Demo_Stats.Views
             FillAccountsComboBox();
             
             //Load the demos from Cache first
-            
-            //demos = DemoSearch.SearchNewDemos(cbbFolders.SelectedIndex, paths, demos); //Then Search for new demos, to prevent duplicates
-            //FillDemoList();
         }
 
         private void BtnOpenSettings_Click(object sender, RoutedEventArgs e)
@@ -120,12 +117,21 @@ namespace Demo_Stats.Views
 
         public void FillDemoList()
         {
-            lstDemos.Items.Clear();
-            foreach(Demo demo in demos)
-            {
-                lstDemos.Items.Add(demo);
-            }
+            //lstDemos.Items.Clear();
+            //foreach(Demo demo in demos)
+            //{
+            //    lstDemos.Items.Add(demo);
+            //}
+
+            DataContext = demos;
             UpdateDemoCount();
+        }
+
+        public void ShowAllDemos()
+        {
+            demos = new Demos();
+            demos = DemoSearch.SearchNewDemos(paths, demos);
+            FillDemoList();
         }
 
         private void ChkAllFolders_Checked(object sender, RoutedEventArgs e)
@@ -134,9 +140,7 @@ namespace Demo_Stats.Views
             cbbFolders.SelectedIndex = -1;
             settings.isShowAllActive = true;
             Cache.SaveAppSettings(settings);
-            demos = new Demos();
-            demos = DemoSearch.SearchNewDemos(paths, demos);
-            FillDemoList();
+            ShowAllDemos();
         }
 
         private void ChkAllFolders_Unchecked(object sender, RoutedEventArgs e)
@@ -145,6 +149,16 @@ namespace Demo_Stats.Views
             settings.isShowAllActive = false;
             Cache.SaveAppSettings(settings);
             cbbFolders.SelectedIndex = AppDataMethods.GetIndexFromSteamPath(settings.selectedSteamPath, paths);
+        }
+
+        private void BtnShowAll_Click(object sender, RoutedEventArgs e)
+        {
+            ShowAllDemos();
+        }
+
+        private void LstDemos_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+
         }
     }
 }
