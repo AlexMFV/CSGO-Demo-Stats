@@ -84,7 +84,7 @@ namespace Demo_Stats
         private static string ConvertDuration(int seconds)
         {
             TimeSpan time = TimeSpan.FromSeconds(seconds);
-            return time.ToString("HH:mm:ss");
+            return time.ToString(@"hh\:mm\:ss");
         }
 
         private static bool DemoExists(string name, Demos demos)
