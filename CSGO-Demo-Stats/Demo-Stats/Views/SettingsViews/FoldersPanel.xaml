@@ -8,7 +8,7 @@
       d:DesignHeight="720" d:DesignWidth="1080"
       Title="FoldersPanel">
 
-    <Grid Background="#FF383838">
+    <Grid Background="{DynamicResource BackgroundGrey}">
         <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" x:Name="lstFolders" Margin="15,84,10,10" Background="{x:Null}" BorderBrush="{x:Null}">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">

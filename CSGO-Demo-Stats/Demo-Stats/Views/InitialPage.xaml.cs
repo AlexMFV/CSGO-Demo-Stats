@@ -117,13 +117,12 @@ namespace Demo_Stats.Views
 
         public void FillDemoList()
         {
-            //lstDemos.Items.Clear();
-            //foreach(Demo demo in demos)
-            //{
-            //    lstDemos.Items.Add(demo);
-            //}
-
-            DataContext = demos;
+            lstDemos.Items.Clear();
+            foreach (Demo demo in demos)
+            {
+                lstDemos.Items.Add(demo);
+            }
+            //lstDemos.DataContext = demos;
             UpdateDemoCount();
         }
 

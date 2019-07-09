@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Demo_Stats">
+
+    <SolidColorBrush x:Key="BackgroundGrey">#FF242424</SolidColorBrush>
+    <SolidColorBrush x:Key="LighterGrey">#FF343434</SolidColorBrush>
+
+    <SolidColorBrush x:Key="SoftWhite">#FFF7F7F7</SolidColorBrush>
+</ResourceDictionary>
