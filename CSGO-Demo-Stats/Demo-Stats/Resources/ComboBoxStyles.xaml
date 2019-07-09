@@ -2,9 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Demo_Stats.Resources">
 
-    <Style x:Key="ComboBoxDarkMode"
+    <Style x:Key="ComboBoxDark"
            TargetType="{x:Type ComboBox}"
            BasedOn="{StaticResource MetroComboBox}">
+        <Setter Property="Background" Value="{DynamicResource BackgroundGrey}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SoftWhite}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SoftWhite}"/>
+    </Style>
+
+    <Style x:Key="ComboBoxItemDark"
+           TargetType="{x:Type ComboBoxItem}"
+           BasedOn="{StaticResource MetroComboBoxItem}">
         <Setter Property="Background" Value="{DynamicResource BackgroundGrey}"/>
         <Setter Property="Foreground" Value="{DynamicResource SoftWhite}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource SoftWhite}"/>

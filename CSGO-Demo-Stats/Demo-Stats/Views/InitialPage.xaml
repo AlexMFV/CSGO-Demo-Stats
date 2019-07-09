@@ -1,7 +1,7 @@
 ﻿<Page x:Class="Demo_Stats.Views.InitialPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:local="clr-namespace:Demo_Stats.Views"
@@ -10,8 +10,8 @@
 
     <Grid Background="{DynamicResource BackgroundGrey}">
         <Button x:Name="btnOpenSettings" Content="Settings" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="70" Height="25" Click="BtnOpenSettings_Click"/>
-        <ComboBox x:Name="cbbSelectedAccount" Style="{StaticResource ComboBoxDarkMode}" Margin="0,5,5,0" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133"/>
-        <ComboBox x:Name="cbbFolders" Style="{StaticResource ComboBoxDarkMode}" Margin="5,80,281,0" VerticalAlignment="Top" SelectionChanged="CbbFolders_SelectionChanged"/>
+        <ComboBox x:Name="cbbSelectedAccount" Style="{StaticResource ComboBoxDark}" ItemContainerStyle="{StaticResource ComboBoxItemDark}" Margin="0,5,5,0" DropDownClosed="Unfocus" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133"/>
+        <ComboBox x:Name="cbbFolders" Style="{StaticResource ComboBoxDark}" ItemContainerStyle="{StaticResource ComboBoxItemDark}" Margin="5,80,281,0" DropDownClosed="Unfocus" VerticalAlignment="Top" SelectionChanged="CbbFolders_SelectionChanged"/>
         <CheckBox x:Name="chkAllFolders" Foreground="White" Content="Show All Folders" Margin="0,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="271" Checked="ChkAllFolders_Checked" Unchecked="ChkAllFolders_Unchecked"/>
         <DataGrid Style="{StaticResource DataGridDarkMode}" ColumnHeaderStyle="{StaticResource DataGridHeader}" x:Name="lstDemos" Margin="0,107,0,60" Background="{DynamicResource BackgroundGrey}">
             <DataGrid.Columns>

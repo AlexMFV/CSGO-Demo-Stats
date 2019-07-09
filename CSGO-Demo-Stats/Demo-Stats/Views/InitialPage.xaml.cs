@@ -155,9 +155,9 @@ namespace Demo_Stats.Views
             ShowAllDemos();
         }
 
-        private void LstDemos_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        private void Unfocus(object sender, EventArgs e)
         {
-
+            lstDemos.Focus();
         }
     }
 }
