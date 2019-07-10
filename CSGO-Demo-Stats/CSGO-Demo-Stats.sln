@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoInfo", "demoinfo\DemoIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Stats", "Demo-Stats\Demo-Stats.csproj", "{8EF689D2-4FFD-4841-8EC6-8088437EB6BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Stats-Form", "Demo-Stats-Form\Demo-Stats-Form.csproj", "{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Bitstream-Debugging|Any CPU = Bitstream-Debugging|Any CPU
@@ -38,16 +36,6 @@ Global
 		{8EF689D2-4FFD-4841-8EC6-8088437EB6BE}.SavePropValues|Any CPU.Build.0 = Release|Any CPU
 		{8EF689D2-4FFD-4841-8EC6-8088437EB6BE}.YoloDebug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8EF689D2-4FFD-4841-8EC6-8088437EB6BE}.YoloDebug|Any CPU.Build.0 = Debug|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.Bitstream-Debugging|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.Bitstream-Debugging|Any CPU.Build.0 = Debug|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.SavePropValues|Any CPU.ActiveCfg = Release|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.SavePropValues|Any CPU.Build.0 = Release|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.YoloDebug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C80E18C-CAEE-42C4-84BF-58B5FDA1B33A}.YoloDebug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
