@@ -11,7 +11,7 @@ namespace Demo_Stats
         #region Variables
 
         //Initial Values
-        public string source { get; set; } //Valve, ESEA, Faceit, etc
+        public Source source { get; set; } //Valve, ESEA, Faceit, etc
         public string name { get; set; }
         public string date { get; set; }
         public string map { get; set; }
@@ -75,7 +75,7 @@ namespace Demo_Stats
         /// <param name="_server_tickrate">The tickrate of the server</param>
         /// <param name="_framerate">Framerate of the demo</param>
         /// <param name="_ticks">Number of total ticks of the demo</param>
-        public Demo(string _source, string _name, string _date, string _map, string _duration, string _hostname,
+        public Demo(Source _source, string _name, string _date, string _map, string _duration, string _hostname,
             string _demo_client, int _server_tickrate, int _framerate, int _ticks)
         {
             source = _source;

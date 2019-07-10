@@ -47,6 +47,8 @@ namespace Demo_Stats.Views.SettingsViews
         {
             lstAccounts.Items.Clear();
             FillListBox();
+            
+            //Updates the list and refreshes it
             lstAccounts.InvalidateArrange();
             lstAccounts.UpdateLayout();
         }

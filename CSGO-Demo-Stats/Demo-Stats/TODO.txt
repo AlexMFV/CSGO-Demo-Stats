@@ -3,11 +3,8 @@
 		-Compare with the saved jsons and Save the new demos.
 		-Load from the jsons the demos that exist
 
-!!!!!!!! DEMO SOURCE IS HARDCODED TO BE VALVE DEMO, CHANGE LATER (DemoSearch.cs) !!!!!!!!
-				!!!!!!!! DATE IS ALSO HARDCODED TO BE CURRENT DATE !!!!!!!!
-
 First Changes:
-	-Create Demo Class
+	-Update Demo Class
 	-Create Player Class
 	-Create Rank Class and corresponding Images
 	-Gather Information from the demos.
@@ -27,5 +24,6 @@ Mid Changes:
 
 Later Changes:
 	- Packet Sniffer to gather Overwatch demos
-
-	-ADD Variables, Controls, Colors, etc to "Resource Dictionaries"
+	- Allow the user to set a default Initial Sorting Column:
+		-(The default is by date, showing the most recent ones first)
+		- Allow the user to change also the Direction (Ascending, Descending)

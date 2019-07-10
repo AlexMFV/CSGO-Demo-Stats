@@ -53,9 +53,9 @@ namespace Demo_Stats
                         if (!DemoExists(demoName, demos))
                         {
                             newDemo.name = demoName;
-                            newDemo.source = "Valve"; //HARDCODED
+                            newDemo.source = ParseDemoSource(parser.Header.ServerName);
                             newDemo.map = parser.Map;
-                            newDemo.date = GetDataFromDemoInfo(filename + ".info"); //HARDCODED
+                            newDemo.date = GetDataFromDemoInfo(filename);
                             newDemo.demo_client = parser.Header.ClientName;
                             newDemo.hostname = parser.Header.ServerName;
                             newDemo.duration = ConvertDuration((int)parser.Header.PlaybackTime);
@@ -73,12 +73,50 @@ namespace Demo_Stats
 
         private static string GetDataFromDemoInfo(string path)
         {
-            using (FileStream file = File.OpenRead(path))
+            try
             {
-                CDataGCCStrike15_v2_MatchInfo matchinfo = Serializer.Deserialize<CDataGCCStrike15_v2_MatchInfo>(file);
-                DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                return epochStart.AddSeconds(matchinfo.matchtime).ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss");
+                if (File.Exists(path + ".info"))
+                {
+                    using (FileStream file = File.OpenRead(path + ".info"))
+                    {
+                        CDataGCCStrike15_v2_MatchInfo matchinfo = Serializer.Deserialize<CDataGCCStrike15_v2_MatchInfo>(file);
+                        DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                        return epochStart.AddSeconds(matchinfo.matchtime).ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss");
+                    }
+                }
+                else
+                {
+                    //If the info file does not exist, just return the last time the file was modified
+                    FileInfo info = new FileInfo(path);
+                    return info.LastWriteTimeUtc.ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss");
+                }
             }
+            catch(Exception ex)
+            {
+                //Needs to be treated
+                return null;
+            }
+        }
+
+        private static Source ParseDemoSource(string hostname)
+        {
+            if (hostname.Contains("Valve CS:GO"))
+                return Source.Valve;
+
+            if (hostname.Contains("FACEIT.com"))
+                return Source.Faceit;
+
+            if (hostname.Contains("Esportal.com"))
+                return Source.Esportal;
+
+            if (hostname.Contains("Counter-Strike")) //Most probably a ESEA Demo
+                return Source.Esea;
+
+            //PopFlash Demo
+
+            //CEVO Demo
+
+            return Source.Unknown;
         }
 
         private static string ConvertDuration(int seconds)

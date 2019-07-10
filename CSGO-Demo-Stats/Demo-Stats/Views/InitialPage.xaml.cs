@@ -44,6 +44,8 @@ namespace Demo_Stats.Views
             FillAccountsComboBox();
 
             //Sort the DataGrid
+            SetInitialColumnSort();
+
             //Load the demos from Cache first
         }
 
@@ -160,6 +162,13 @@ namespace Demo_Stats.Views
         private void Unfocus(object sender, EventArgs e)
         {
             lstDemos.Focus();
+        }
+
+        private void SetInitialColumnSort()
+        {
+            DataGridColumn column = lstDemos.Columns[1]; //lstDemos.Columns[settings.selectedColumn];
+            column.SortDirection = ListSortDirection.Descending; //if(1) Ascending else Descending
+            lstDemos.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, (ListSortDirection)column.SortDirection));
         }
     }
 }

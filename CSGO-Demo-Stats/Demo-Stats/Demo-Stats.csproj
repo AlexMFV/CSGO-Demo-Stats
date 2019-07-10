@@ -90,6 +90,7 @@
       <DependentUpon>NewAccountDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Exceptions.cs" />
+    <Compile Include="Enums\Source.cs" />
     <Compile Include="Protobuf\gcmessages.cs" />
     <Compile Include="Views\InitialPage.xaml.cs">
       <DependentUpon>InitialPage.xaml</DependentUpon>
