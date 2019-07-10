@@ -121,12 +121,12 @@ namespace Demo_Stats.Views
 
         public void FillDemoList()
         {
-            lstDemos.Items.Clear();
-            foreach (Demo demo in demos)
-            {
-                lstDemos.Items.Add(demo);
-            }
-            //DataContext = demos;
+            //lstDemos.Items.Clear();
+            //foreach (Demo demo in demos)
+            //{
+            //    lstDemos.Items.Add(demo);
+            //}
+            lstDemos.DataContext = demos;
             UpdateDemoCount();
         }
 
@@ -170,5 +170,31 @@ namespace Demo_Stats.Views
             column.SortDirection = ListSortDirection.Descending; //if(1) Ascending else Descending
             lstDemos.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, (ListSortDirection)column.SortDirection));
         }
+
+        private void BtnTestValues_Click(object sender, RoutedEventArgs e) //Async method
+        {
+            //await RunAddAsync();
+        }
+
+        //private async Task RunAddAsync()
+        //{
+        //    await Task.Run(() => RefreshListBox());
+        //}
+
+        //private void RefreshListBox()
+        //{
+        //    //Dispatcher.Invoke(() =>
+        //    //{
+        //        while (demos[0].demo_ticks < 10000000)
+        //        {
+        //            demos[0].demo_ticks++;
+        //        Application.Current.Dispatcher.Invoke(() =>
+        //        {
+        //            lstDemos.Items.Refresh();
+        //        });
+        //            //lstDemos.Items.Refresh();
+        //        }
+        //    //});
+        //}
     }
 }
