@@ -36,6 +36,5 @@
             </UniformGrid>
             <Label x:Name="lblDemoCount" Content="0 Demo(s)" Margin="0,0,0,0" Foreground="White" FontFamily="Verdana" FontSize="16" Height="30" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Width="128"/>
         </WrapPanel>
-        <Button x:Name="btnTestValues" Content="Change" Click="BtnTestValues_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="258,27,0,0"/>
     </Grid>
 </Page>

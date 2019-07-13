@@ -171,10 +171,10 @@ namespace Demo_Stats.Views
             lstDemos.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, (ListSortDirection)column.SortDirection));
         }
 
-        private void BtnTestValues_Click(object sender, RoutedEventArgs e) //Async method
-        {
-            //await RunAddAsync();
-        }
+        //private void BtnTestValues_Click(object sender, RoutedEventArgs e) //Async method
+        //{
+        //    //await RunAddAsync();
+        //}
 
         //private async Task RunAddAsync()
         //{
