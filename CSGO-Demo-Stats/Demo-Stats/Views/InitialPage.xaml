@@ -26,7 +26,7 @@
                 <DataGridTextColumn Header="Client" Binding="{Binding demo_client}"/>
                 <DataGridTextColumn Header="TR" Binding="{Binding server_tickrate}"/>
                 <DataGridTextColumn Header="FR" Binding="{Binding demo_framerate}"/>
-                <DataGridTextColumn Header="Ticks" Binding="{Binding demo_ticks}"/>
+                <DataGridTextColumn Header="Ticks" Binding="{Binding demo_ticks}" Width="*"/> <!--Temporary Fix?-->
             </DataGrid.Columns>
         </DataGrid>
         <WrapPanel HorizontalAlignment="Stretch" Margin="0,0,0,24" Width="1280" Height="31" VerticalAlignment="Bottom">
