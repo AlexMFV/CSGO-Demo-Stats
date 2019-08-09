@@ -67,7 +67,7 @@ namespace Demo_Stats.Views
             }
             else
             {
-                cbbSelectedAccount.Items.Add("<--- Please create account first --->");
+                cbbSelectedAccount.Items.Add("<--- Add an account first --->");
                 cbbSelectedAccount.SelectedIndex = 0;
             }
         }
@@ -97,7 +97,7 @@ namespace Demo_Stats.Views
             }
             else
             {
-                cbbSelectedAccount.Items.Add("<--- Please add a demos path first --->");
+                cbbSelectedAccount.Items.Add("<--- Please add a \"demos\" path first --->");
                 cbbSelectedAccount.SelectedIndex = 0;
             }
         }
@@ -121,13 +121,7 @@ namespace Demo_Stats.Views
 
         public void FillDemoList()
         {
-            //lstDemos.Items.Clear();
-            //foreach (Demo demo in demos)
-            //{
-            //    lstDemos.Items.Add(demo);
-            //}
             lstDemos.DataContext = demos;
-            UpdateDemoCount();
         }
 
         public void ShowAllDemos()
@@ -169,6 +163,11 @@ namespace Demo_Stats.Views
             DataGridColumn column = lstDemos.Columns[1]; //lstDemos.Columns[settings.selectedColumn];
             column.SortDirection = ListSortDirection.Descending; //if(1) Ascending else Descending
             lstDemos.Items.SortDescriptions.Add(new SortDescription(column.SortMemberPath, (ListSortDirection)column.SortDirection));
+        }
+
+        private void LstDemos_LayoutUpdated(object sender, EventArgs e)
+        {
+            UpdateDemoCount();
         }
 
         //private void BtnTestValues_Click(object sender, RoutedEventArgs e) //Async method
