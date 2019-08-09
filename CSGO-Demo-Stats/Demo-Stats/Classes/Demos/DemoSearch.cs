@@ -38,31 +38,34 @@ namespace Demo_Stats
 
         private static Demos RetrieveDemosFromFolder(string path, Demos demos)
         {
-            foreach (string filename in Directory.GetFiles(path))
+            if (Directory.Exists(path))
             {
-                if (!filename.Contains(".info") && !filename.Contains(".vdm"))
+                foreach (string filename in Directory.GetFiles(path))
                 {
-                    using (FileStream file = new FileStream(filename, FileMode.Open))
+                    if (!filename.Contains(".info") && !filename.Contains(".vdm"))
                     {
-                        Demo newDemo = new Demo();
-                        DemoParser parser = new DemoParser(file);
-                        parser.ParseHeader();
-
-                        string demoName = filename.Replace(path + "\\", "");
-
-                        if (!DemoExists(demoName, demos))
+                        using (FileStream file = new FileStream(filename, FileMode.Open))
                         {
-                            newDemo.name = demoName;
-                            newDemo.source = ParseDemoSource(parser.Header.ServerName);
-                            newDemo.map = parser.Map;
-                            newDemo.date = GetDataFromDemoInfo(filename);
-                            newDemo.demo_client = parser.Header.ClientName;
-                            newDemo.hostname = parser.Header.ServerName;
-                            newDemo.duration = ConvertDuration((int)parser.Header.PlaybackTime);
-                            newDemo.server_tickrate = (int)(parser.Header.PlaybackTicks / parser.Header.PlaybackTime);
-                            newDemo.demo_framerate = (int)Math.Ceiling(parser.TickRate);
-                            newDemo.demo_ticks = parser.Header.PlaybackTicks;
-                            demos.Add(newDemo);
+                            Demo newDemo = new Demo();
+                            DemoParser parser = new DemoParser(file);
+                            parser.ParseHeader();
+
+                            string demoName = filename.Replace(path + "\\", "");
+
+                            if (!DemoExists(demoName, demos))
+                            {
+                                newDemo.name = demoName;
+                                newDemo.source = ParseDemoSource(parser.Header.ServerName);
+                                newDemo.map = parser.Map;
+                                newDemo.date = GetDataFromDemoInfo(filename);
+                                newDemo.demo_client = parser.Header.ClientName;
+                                newDemo.hostname = parser.Header.ServerName;
+                                newDemo.duration = ConvertDuration((int)parser.Header.PlaybackTime);
+                                newDemo.server_tickrate = (int)(parser.Header.PlaybackTicks / parser.Header.PlaybackTime);
+                                newDemo.demo_framerate = (int)Math.Ceiling(parser.TickRate);
+                                newDemo.demo_ticks = parser.Header.PlaybackTicks;
+                                demos.Add(newDemo);
+                            }
                         }
                     }
                 }

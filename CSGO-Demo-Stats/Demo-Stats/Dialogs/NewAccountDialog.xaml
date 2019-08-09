@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo_Stats.Dialogs"
         mc:Ignorable="d"
-        Title="New Account" Height="151.531" Width="375.255" Background="#FF535353">
-    <Grid Margin="15">
+        Title="New Account" Height="163.89" Width="375.255" Background="#FF535353">
+    <Grid Margin="15,15,15,0" Height="99" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
