@@ -170,6 +170,12 @@ namespace Demo_Stats.Views
             UpdateDemoCount();
         }
 
+        private void LstDemos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lstDemos.SelectedItems.Count > 0)
+                main.Content = new DemoPage(demos[lstDemos.SelectedIndex]);
+        }
+
         //private void BtnTestValues_Click(object sender, RoutedEventArgs e) //Async method
         //{
         //    //await RunAddAsync();

@@ -13,7 +13,7 @@
         <ComboBox x:Name="cbbSelectedAccount" Style="{StaticResource ComboBoxDark}" ItemContainerStyle="{StaticResource ComboBoxItemDark}" Margin="0,5,5,0" DropDownClosed="Unfocus" VerticalAlignment="Top" SelectionChanged="CbbSelectedAccount_SelectionChanged" HorizontalAlignment="Right" Width="133"/>
         <ComboBox x:Name="cbbFolders" Style="{StaticResource ComboBoxDark}" ItemContainerStyle="{StaticResource ComboBoxItemDark}" Margin="5,80,281,0" DropDownClosed="Unfocus" VerticalAlignment="Top" SelectionChanged="CbbFolders_SelectionChanged"/>
         <CheckBox x:Name="chkAllFolders" Foreground="White" Content="Show All Folders" Margin="0,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="271" Checked="ChkAllFolders_Checked" Unchecked="ChkAllFolders_Unchecked"/>
-        <DataGrid Style="{StaticResource DataGridDarkMode}" ItemsSource="{Binding IsAsync=True}" LayoutUpdated="LstDemos_LayoutUpdated" AutoGenerateColumns="False" ColumnHeaderStyle="{StaticResource DataGridHeader}" x:Name="lstDemos" Margin="0,107,0,60" Background="{DynamicResource BackgroundGrey}">
+        <DataGrid Style="{StaticResource DataGridDarkMode}" ItemsSource="{Binding IsAsync=True}" MouseDoubleClick="LstDemos_MouseDoubleClick" LayoutUpdated="LstDemos_LayoutUpdated" AutoGenerateColumns="False" ColumnHeaderStyle="{StaticResource DataGridHeader}" x:Name="lstDemos" Margin="0,107,0,60" Background="{DynamicResource BackgroundGrey}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Source" Binding="{Binding source}"/>
                 <DataGridTextColumn Header="Date" x:Name="colDate" Binding="{Binding date}"/>
