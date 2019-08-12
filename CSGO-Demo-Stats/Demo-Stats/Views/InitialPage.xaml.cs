@@ -173,7 +173,7 @@ namespace Demo_Stats.Views
         private void LstDemos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (lstDemos.SelectedItems.Count > 0)
-                main.Content = new DemoPage(demos[lstDemos.SelectedIndex]);
+                main.Content = new DemoPage(main, (Demo)lstDemos.SelectedItem, settings.selectedSteamPath);
         }
 
         //private void BtnTestValues_Click(object sender, RoutedEventArgs e) //Async method
