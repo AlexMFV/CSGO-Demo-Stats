@@ -28,6 +28,10 @@ namespace Demo_Stats
         public string status { get; set; }
         public int score_t1 { get; set; }
         public int score_t2 { get; set; }
+        public int t1_ct { get; set; } //Team 1 Score on CT
+        public int t1_t { get; set; } //Team 1 Score on T
+        public int t2_ct { get; set; } //Team 2 Score on CT
+        public int t2_t { get; set; } //Team 2 Score on T
         public int bans { get; set; }
         public double htlv_rating { get; set; }
         public double esea_rws { get; set; } //Round Win Share
