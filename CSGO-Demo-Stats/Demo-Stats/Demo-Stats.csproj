@@ -247,5 +247,8 @@
     <Resource Include="Images\Maps\de_vertigo.jpg" />
     <Resource Include="Images\Maps\de_zoo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Maps\other.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

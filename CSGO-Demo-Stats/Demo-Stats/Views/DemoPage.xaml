@@ -26,5 +26,6 @@
         <Button x:Name="btnBack" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="15,15,0,0" Height="40" Click="BtnBack_Click">
             <Custom:PackIconMaterial Kind="ArrowLeftBold" Foreground="{DynamicResource SoftWhite}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
+        <Image x:Name="imgMap" HorizontalAlignment="Left" Height="301" Margin="421,399,0,0" VerticalAlignment="Top" Width="440"/>
     </Grid>
 </Page>

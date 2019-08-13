@@ -45,6 +45,27 @@ namespace Demo_Stats.Views
             main = _main;
             demo = _demo;
             fullpath = _path + "\\" + demo.name;
+            FillMapImage();
+        }
+
+        public void FillMapImage()
+        {
+            BitmapImage bi = new BitmapImage();
+            string path = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Images\\Maps\\" + demo.map + ".jpg";
+            if (File.Exists(path))
+            {
+                bi.BeginInit();
+                bi.UriSource = new Uri(("../Images/Maps/" + demo.map + ".jpg"), UriKind.Relative);
+                bi.EndInit();
+            }
+            else
+            {
+                bi.BeginInit();
+                bi.UriSource = new Uri(@"../Images/Maps/other.jpg", UriKind.Relative);
+                bi.EndInit();
+            }
+
+            imgMap.Source = bi;
         }
 
         private void BtnAnalyze_Click(object sender, RoutedEventArgs e)
