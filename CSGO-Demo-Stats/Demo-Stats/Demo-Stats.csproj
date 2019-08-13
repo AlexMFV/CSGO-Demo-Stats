@@ -205,5 +205,47 @@
   <ItemGroup>
     <Resource Include="TODO.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ranks\skillgroup1.png" />
+    <Resource Include="Images\Ranks\skillgroup10.png" />
+    <Resource Include="Images\Ranks\skillgroup11.png" />
+    <Resource Include="Images\Ranks\skillgroup12.png" />
+    <Resource Include="Images\Ranks\skillgroup13.png" />
+    <Resource Include="Images\Ranks\skillgroup14.png" />
+    <Resource Include="Images\Ranks\skillgroup15.png" />
+    <Resource Include="Images\Ranks\skillgroup16.png" />
+    <Resource Include="Images\Ranks\skillgroup17.png" />
+    <Resource Include="Images\Ranks\skillgroup18.png" />
+    <Resource Include="Images\Ranks\skillgroup2.png" />
+    <Resource Include="Images\Ranks\skillgroup3.png" />
+    <Resource Include="Images\Ranks\skillgroup4.png" />
+    <Resource Include="Images\Ranks\skillgroup5.png" />
+    <Resource Include="Images\Ranks\skillgroup6.png" />
+    <Resource Include="Images\Ranks\skillgroup7.png" />
+    <Resource Include="Images\Ranks\skillgroup8.png" />
+    <Resource Include="Images\Ranks\skillgroup9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Maps\cs_assault.jpg" />
+    <Resource Include="Images\Maps\cs_italy.jpg" />
+    <Resource Include="Images\Maps\cs_militia.jpg" />
+    <Resource Include="Images\Maps\cs_office.jpg" />
+    <Resource Include="Images\Maps\cs_workout.jpg" />
+    <Resource Include="Images\Maps\de_agency.jpg" />
+    <Resource Include="Images\Maps\de_breach.jpg" />
+    <Resource Include="Images\Maps\de_cache.jpg" />
+    <Resource Include="Images\Maps\de_canals.jpg" />
+    <Resource Include="Images\Maps\de_cobblestone.jpg" />
+    <Resource Include="Images\Maps\de_dust2.jpg" />
+    <Resource Include="Images\Maps\de_inferno.jpg" />
+    <Resource Include="Images\Maps\de_mirage.jpg" />
+    <Resource Include="Images\Maps\de_nuke.jpg" />
+    <Resource Include="Images\Maps\de_overpass.jpg" />
+    <Resource Include="Images\Maps\de_ruby.jpg" />
+    <Resource Include="Images\Maps\de_seaside.jpg" />
+    <Resource Include="Images\Maps\de_train.jpg" />
+    <Resource Include="Images\Maps\de_vertigo.jpg" />
+    <Resource Include="Images\Maps\de_zoo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
