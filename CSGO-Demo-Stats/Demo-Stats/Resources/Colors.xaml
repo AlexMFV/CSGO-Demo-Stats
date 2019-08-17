@@ -6,4 +6,6 @@
     <SolidColorBrush x:Key="LighterGrey">#FF343434</SolidColorBrush>
 
     <SolidColorBrush x:Key="SoftWhite">#FFF7F7F7</SolidColorBrush>
+    <SolidColorBrush x:Key="GenericBlue">#FF41b1e1</SolidColorBrush>
+    
 </ResourceDictionary>
