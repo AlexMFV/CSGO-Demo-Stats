@@ -10,24 +10,29 @@
 
     <Grid Background="{StaticResource BackgroundGrey}">
         <Button x:Name="btnAnalyze" Content="Analyze Demo" Margin="595,0,595,30" Height="30" VerticalAlignment="Bottom" Click="BtnAnalyze_Click"/>
-        <Label x:Name="lblTeam1" Content="TEAM 1" Foreground="White" FontSize="80" Width="300" Height="120" Margin="294,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-        <Label x:Name="lblTeam2" Content="TEAM 2" Foreground="White" FontSize="80" Margin="0,10,299,0" HorizontalAlignment="Right" Width="300" Height="120" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-
-        <Label x:Name="lblTeam1Score" Content="0" Foreground="White" FontSize="100" Width="150" Height="120" Margin="364,135,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-        <Label x:Name="lblTeam2Score" Content="0" Foreground="White" FontSize="100" Width="150" Margin="0,135,381,0" HorizontalAlignment="Right" Height="120" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-
-        <Label x:Name="lblTeam1T" Content="0" Foreground="Orange" FontSize="50" Width="70" Height="120" Margin="442,274,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-        <Label x:Name="lblTeam2T" Content="0" Foreground="Orange" FontSize="50" Width="70" Margin="0,274,456,0" HorizontalAlignment="Right" Height="120" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-        <Label x:Name="lblTeam1CT" Content="0" Foreground="Cyan" FontSize="50" Height="120" Margin="367,274,0,0" HorizontalAlignment="Left" Width="70" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-        <Label x:Name="lblTeam2CT" Content="0" Foreground="Cyan" FontSize="50" Width="70" Margin="0,274,381,0" HorizontalAlignment="Right" Height="120" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
 
         <Label x:Name="lblRoundNumber" Content="Round: 0" Foreground="AntiqueWhite" FontSize="50" Height="120" Margin="10,0,0,256" HorizontalAlignment="Left" Width="390" VerticalAlignment="Bottom"/>
         <Label x:Name="lblWinner" Content="Winner is:" Visibility="Hidden" Foreground="AntiqueWhite" FontSize="50" Height="120" Margin="10,0,0,136" HorizontalAlignment="Left" Width="390" VerticalAlignment="Bottom"/>
         <Button x:Name="btnBack" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="15,15,0,0" Height="40" Click="BtnBack_Click">
             <Custom:PackIconMaterial Kind="ArrowLeftBold" Foreground="{DynamicResource SoftWhite}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
-        <Border  BorderBrush="{DynamicResource GenericBlue}" BorderThickness="2" Height="265" Margin="425,399,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="421">
+        <Border  BorderBrush="{DynamicResource GenericBlue}" BorderThickness="2" Height="230" Margin="15,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="421">
             <Image x:Name="imgMap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill"/>
         </Border>
+        <StackPanel Margin="436,80,0,0" Height="230" VerticalAlignment="Top" HorizontalAlignment="Left" Width="136">
+            <Label x:Name="lblTeam1" Content="TEAM 1" Foreground="White" FontSize="20" Width="200" Height="45" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0, 0, 0, -20"/>
+
+            <Label x:Name="lblTeam1Score" Content="0" Foreground="White" FontSize="40" Width="80" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, -10, 0, 0">
+                <Label x:Name="lblTeam1CT" Content="0" Foreground="Cyan" Margin="-5,0,-5,0" FontSize="15" Height="35" HorizontalAlignment="Center" Width="30" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+                <Label x:Name="lblTeam1T" Content="0" Foreground="Orange" Margin="-5,0,-5,0" FontSize="15" Width="30" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, -10, 0, -10">
+                <Label x:Name="lblTeam2T" Content="0" Foreground="Orange" Margin="-5,0,-5,0" FontSize="15" Width="30" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+                <Label x:Name="lblTeam2CT" Content="0" Foreground="Cyan" Margin="-5,0,-5,0" FontSize="15" Width="30" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+            <Label x:Name="lblTeam2Score" Content="0" Foreground="White" FontSize="40" Width="80" HorizontalAlignment="Center" Height="70" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0,0,0,-20"/>
+            <Label x:Name="lblTeam2" Content="TEAM 2" Foreground="White" FontSize="20" Height="50" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>
