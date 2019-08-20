@@ -9,30 +9,141 @@
       Title="DemoPage" Background="Black" >
 
     <Grid Background="{StaticResource BackgroundGrey}">
-        <Button x:Name="btnAnalyze" Content="Analyze Demo" Margin="595,0,595,30" Height="30" VerticalAlignment="Bottom" Click="BtnAnalyze_Click"/>
-
-        <Label x:Name="lblRoundNumber" Content="Round: 0" Foreground="AntiqueWhite" FontSize="50" Height="120" Margin="10,0,0,256" HorizontalAlignment="Left" Width="390" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnAnalyze" Content="Analyze Demo" Margin="188,0,0,226" Height="30" VerticalAlignment="Bottom" Click="BtnAnalyze_Click" HorizontalAlignment="Left" Width="90"/>
         <Label x:Name="lblWinner" Content="Winner is:" Visibility="Hidden" Foreground="AntiqueWhite" FontSize="50" Height="120" Margin="10,0,0,136" HorizontalAlignment="Left" Width="390" VerticalAlignment="Bottom"/>
         <Button x:Name="btnBack" Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="15,15,0,0" Height="40" Click="BtnBack_Click">
             <Custom:PackIconMaterial Kind="ArrowLeftBold" Foreground="{DynamicResource SoftWhite}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
-        <Border  BorderBrush="{DynamicResource GenericBlue}" BorderThickness="2" Height="230" Margin="15,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="421">
-            <Image x:Name="imgMap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill"/>
-        </Border>
-        <StackPanel Margin="436,80,0,0" Height="230" VerticalAlignment="Top" HorizontalAlignment="Left" Width="136">
-            <Label x:Name="lblTeam1" Content="TEAM 1" Foreground="White" FontSize="20" Width="200" Height="45" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0, 0, 0, -20"/>
+        <StackPanel x:Name="panelLeft" HorizontalAlignment="Left" Height="690" Margin="15,80,0,0" VerticalAlignment="Top" Width="421">
+            <Border  BorderBrush="{DynamicResource GenericBlue}" BorderThickness="2" Height="230" VerticalAlignment="Top" HorizontalAlignment="Left" Width="421">
+                <Image x:Name="imgMap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill"/>
+            </Border>
+        </StackPanel>
+        <Button x:Name="btnLeftBar" Background="{DynamicResource GenericBlue}" BorderBrush="White" HorizontalAlignment="Left" Click="BtnLeftBar_Click" VerticalAlignment="Center" Width="9" Height="300" Margin="1,250,0,250"/>
+        <StackPanel x:Name="panelRight" Margin="440,80,10,10">
+            <StackPanel Height="230" VerticalAlignment="Top" HorizontalAlignment="Left" Width="136" Margin="0,70,0,0">
+                <Label x:Name="lblTeam1" Content="TEAM 1" Foreground="White" FontSize="20" Width="200" Height="45" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0, 0, 0, -20"/>
 
-            <Label x:Name="lblTeam1Score" Content="0" Foreground="White" FontSize="40" Width="80" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, -10, 0, 0">
-                <Label x:Name="lblTeam1CT" Content="0" Foreground="Cyan" Margin="-5,0,-5,0" FontSize="15" Height="35" HorizontalAlignment="Center" Width="30" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-                <Label x:Name="lblTeam1T" Content="0" Foreground="Orange" Margin="-5,0,-5,0" FontSize="15" Width="30" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+                <Label x:Name="lblTeam1Score" Content="0" Foreground="White" FontSize="40" Width="80" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, -10, 0, 0">
+                    <Label x:Name="lblTeam1CT" Content="0" Foreground="Cyan" Margin="-5,0,-5,0" FontSize="15" Height="35" HorizontalAlignment="Center" Width="30" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="lblTeam1T" Content="0" Foreground="Orange" Margin="-5,0,-5,0" FontSize="15" Width="30" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, -10, 0, -10">
+                    <Label x:Name="lblTeam2T" Content="0" Foreground="Orange" Margin="-5,0,-5,0" FontSize="15" Width="30" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="lblTeam2CT" Content="0" Foreground="Cyan" Margin="-5,0,-5,0" FontSize="15" Width="30" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+                <Label x:Name="lblTeam2Score" Content="0" Foreground="White" FontSize="40" Width="80" HorizontalAlignment="Center" Height="70" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0,0,0,-20"/>
+                <Label x:Name="lblTeam2" Content="TEAM 2" Foreground="White" FontSize="20" Height="50" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, -10, 0, -10">
-                <Label x:Name="lblTeam2T" Content="0" Foreground="Orange" Margin="-5,0,-5,0" FontSize="15" Width="30" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-                <Label x:Name="lblTeam2CT" Content="0" Foreground="Cyan" Margin="-5,0,-5,0" FontSize="15" Width="30" HorizontalAlignment="Center" Height="35" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-            </StackPanel>
-            <Label x:Name="lblTeam2Score" Content="0" Foreground="White" FontSize="40" Width="80" HorizontalAlignment="Center" Height="70" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0,0,0,-20"/>
-            <Label x:Name="lblTeam2" Content="TEAM 2" Foreground="White" FontSize="20" Height="50" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+            <DataGrid x:Name="lstTeam1Players" ItemsSource="{Binding IsAsync=True}" HorizontalScrollBarVisibility="Auto" Style="{DynamicResource DataGridDarkMode}" ColumnHeaderStyle="{DynamicResource DataGridHeader}" Background="{StaticResource BackgroundGrey}" AutoGenerateColumns="False" Height="184" Margin="130,-410,0,0">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Avatar">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding avatar}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Rank" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding rank}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="K" Binding="{Binding kills}"/>
+                    <DataGridTextColumn Header="A" Binding="{Binding assists}"/>
+                    <DataGridTextColumn Header="D" Binding="{Binding deaths}"/>
+                    <DataGridTextColumn Header="K/D" Binding="{Binding kdr}"/>
+                    <DataGridTextColumn Header="HS" Binding="{Binding hs}"/>
+                    <DataGridTextColumn Header="HS%" Binding="{Binding hs_percent}"/>
+                    <DataGridTextColumn Header="FF" Binding="{Binding tk}"/>
+                    <DataGridTextColumn Header="EK" Binding="{Binding entry_kills}"/>
+                    <DataGridTextColumn Header="BP" Binding="{Binding bombs_planted}"/>
+                    <DataGridTextColumn Header="BD" Binding="{Binding bombs_defused}"/>
+                    <DataGridTextColumn Header="MVP" Binding="{Binding mvps}"/>
+                    <DataGridTextColumn Header="SCORE" Binding="{Binding score}"/>
+                    <DataGridTextColumn Header="ATD (s)" Binding="{Binding atd}"/>
+                    <DataGridTextColumn Header="HLTV" Binding="{Binding hltv_score}"/>
+                    <DataGridTextColumn Header="RWS" Binding="{Binding esea_rws}"/>
+                    <DataGridTextColumn Header="1K" Binding="{Binding _1k}"/>
+                    <DataGridTextColumn Header="2K" Binding="{Binding _2k}"/>
+                    <DataGridTextColumn Header="3K" Binding="{Binding _3k}"/>
+                    <DataGridTextColumn Header="4K" Binding="{Binding _4k}"/>
+                    <DataGridTextColumn Header="5K" Binding="{Binding _5k}"/>
+                    <DataGridTextColumn Header="TK" Binding="{Binding trade_kills}"/>
+                    <DataGridTextColumn Header="TD" Binding="{Binding trade_death}"/>
+                    <DataGridTextColumn Header="KPR" Binding="{Binding kpr}"/>
+                    <DataGridTextColumn Header="APR" Binding="{Binding apr}"/>
+                    <DataGridTextColumn Header="DPR" Binding="{Binding dpr}"/>
+                    <DataGridTextColumn Header="ADR" Binding="{Binding adr}"/>
+                    <DataGridTextColumn Header="TDH" Binding="{Binding tdd}"/>
+                    <DataGridTextColumn Header="TDA" Binding="{Binding tda}"/>
+                    <DataGridTextColumn Header="1V1" Binding="{Binding _1v1}"/>
+                    <DataGridTextColumn Header="1V2" Binding="{Binding _1v2}"/>
+                    <DataGridTextColumn Header="1V3" Binding="{Binding _1v3}"/>
+                    <DataGridTextColumn Header="1V4" Binding="{Binding _1v4}"/>
+                    <DataGridTextColumn Header="1V5" Binding="{Binding _1v5}"/>
+                    <DataGridTextColumn Header="VAC" Binding="{Binding vac_banned}"/>
+                    <DataGridTextColumn Header="OW" Binding="{Binding ow_banned}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="lstTeam2Players" ItemsSource="{Binding IsAsync=True}" HorizontalScrollBarVisibility="Auto" Style="{DynamicResource DataGridDarkMode}" ColumnHeaderStyle="{DynamicResource DataGridHeader}" Background="{StaticResource BackgroundGrey}" AutoGenerateColumns="False" Height="184" Margin="130,-105,0,0">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Avatar">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding avatar}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Rank" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding rank}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="K" Binding="{Binding kills}"/>
+                    <DataGridTextColumn Header="A" Binding="{Binding assists}"/>
+                    <DataGridTextColumn Header="D" Binding="{Binding deaths}"/>
+                    <DataGridTextColumn Header="K/D" Binding="{Binding kdr}"/>
+                    <DataGridTextColumn Header="HS" Binding="{Binding hs}"/>
+                    <DataGridTextColumn Header="HS%" Binding="{Binding hs_percent}"/>
+                    <DataGridTextColumn Header="FF" Binding="{Binding tk}"/>
+                    <DataGridTextColumn Header="EK" Binding="{Binding entry_kills}"/>
+                    <DataGridTextColumn Header="BP" Binding="{Binding bombs_planted}"/>
+                    <DataGridTextColumn Header="BD" Binding="{Binding bombs_defused}"/>
+                    <DataGridTextColumn Header="MVP" Binding="{Binding mvps}"/>
+                    <DataGridTextColumn Header="SCORE" Binding="{Binding score}"/>
+                    <DataGridTextColumn Header="ATD (s)" Binding="{Binding atd}"/>
+                    <DataGridTextColumn Header="HLTV" Binding="{Binding hltv_score}"/>
+                    <DataGridTextColumn Header="RWS" Binding="{Binding esea_rws}"/>
+                    <DataGridTextColumn Header="1K" Binding="{Binding _1k}"/>
+                    <DataGridTextColumn Header="2K" Binding="{Binding _2k}"/>
+                    <DataGridTextColumn Header="3K" Binding="{Binding _3k}"/>
+                    <DataGridTextColumn Header="4K" Binding="{Binding _4k}"/>
+                    <DataGridTextColumn Header="5K" Binding="{Binding _5k}"/>
+                    <DataGridTextColumn Header="TK" Binding="{Binding trade_kills}"/>
+                    <DataGridTextColumn Header="TD" Binding="{Binding trade_death}"/>
+                    <DataGridTextColumn Header="KPR" Binding="{Binding kpr}"/>
+                    <DataGridTextColumn Header="APR" Binding="{Binding apr}"/>
+                    <DataGridTextColumn Header="DPR" Binding="{Binding dpr}"/>
+                    <DataGridTextColumn Header="ADR" Binding="{Binding adr}"/>
+                    <DataGridTextColumn Header="TDH" Binding="{Binding tdd}"/>
+                    <DataGridTextColumn Header="TDA" Binding="{Binding tda}"/>
+                    <DataGridTextColumn Header="1V1" Binding="{Binding _1v1}"/>
+                    <DataGridTextColumn Header="1V2" Binding="{Binding _1v2}"/>
+                    <DataGridTextColumn Header="1V3" Binding="{Binding _1v3}"/>
+                    <DataGridTextColumn Header="1V4" Binding="{Binding _1v4}"/>
+                    <DataGridTextColumn Header="1V5" Binding="{Binding _1v5}"/>
+                    <DataGridTextColumn Header="VAC" Binding="{Binding vac_banned}"/>
+                    <DataGridTextColumn Header="OW" Binding="{Binding ow_banned}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </Page>

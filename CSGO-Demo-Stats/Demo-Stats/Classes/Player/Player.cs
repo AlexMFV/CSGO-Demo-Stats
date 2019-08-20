@@ -39,7 +39,9 @@ namespace Demo_Stats
         public int trade_kills { get; set; }
         public int trade_death { get; set; }
         public int kpr { get; set; } //kills per round
+        public int apr { get; set; } //assists per round
         public int dpr { get; set; } //death per round
+        public int adr { get; set; } //average damage round
         public int tdd { get; set; } //Total damage dealt
         public int tda { get; set; } //Total damage armor
         public int _1v1 { get; set; }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Demo_Stats
+﻿namespace Demo_Stats
 {
     public class Demo
     {
@@ -23,6 +17,7 @@ namespace Demo_Stats
         public int demo_ticks { get; set; }
 
         //Other Values
+        public int rounds { get; set; }
         public string team1_name { get; set; }
         public string team2_name { get; set; }
         public string status { get; set; }
@@ -41,6 +36,7 @@ namespace Demo_Stats
         public int k4 { get; set; }
         public int k5 { get; set; }
         public int kills { get; set; }
+        public int deaths { get; set; }
         public int trade_kills { get; set; }
         public int jump_kills { get; set; }
         public int crouch_kills { get; set; }
@@ -56,8 +52,8 @@ namespace Demo_Stats
         public int bombs_planted { get; set; }
         public string comment { get; set; }
 
-        //For now i'll just leave these variables, later on i'll need to add, rounds,
-        //players, utilities, kills, deaths, locations, scores, hs%, kdr, hltv rating, etc
+        //For now i'll just leave these variables, later on i'll need to add rounds,
+        //players, utilities, locations, scores, hs%, kdr, hltv rating, etc
 
         #endregion
 

@@ -80,6 +80,7 @@
     </ApplicationDefinition>
     <Compile Include="Classes\AppData\AppDataMethods.cs" />
     <Compile Include="Classes\AppData\AppSettings.cs" />
+    <Compile Include="Classes\Demos\DemoAnalyzer.cs" />
     <Compile Include="Classes\Demos\Demos.cs" />
     <Compile Include="Classes\Demos\DemoSearch.cs" />
     <Compile Include="Classes\Misc\AccountListItem.cs" />

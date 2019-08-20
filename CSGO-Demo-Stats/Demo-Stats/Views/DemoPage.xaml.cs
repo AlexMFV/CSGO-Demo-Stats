@@ -24,20 +24,8 @@ namespace Demo_Stats.Views
     {
         MainWindow main;
         Demo demo;
-        DemoParser parser;
         string fullpath;
-
-        //Round Variables
-        int curr_round = 0;
-        int t1_ct = 0;
-        int t1_t = 0;
-        int t2_ct = 0;
-        int t2_t = 0;
-
-        //Workarounds
-        bool processRound = false; //TEMPORARY FIX??
-        bool roundEndOccurred = false;
-        string RoundWonBy = null;
+        bool isOpened = true;
 
         public DemoPage(MainWindow _main, Demo _demo, string _path)
         {
@@ -70,110 +58,28 @@ namespace Demo_Stats.Views
 
         private void BtnAnalyze_Click(object sender, RoutedEventArgs e)
         {
-            AnalyzeDemo();
-        }
-
-        public void AnalyzeDemo()
-        {
-            using (FileStream stream = File.OpenRead(fullpath))
-            {
-                parser = new DemoParser(stream);
-                parser.ParseHeader();
-                parser.RoundStart += Parser_RoundStart;
-                parser.RoundEnd += Parser_RoundEnd;
-                parser.RoundOfficiallyEnd += Parser_RoundOfficiallyEnd;
-                parser.TeamScoreChange += Parser_TeamScoreChange;
-                parser.ParseToEnd();
-
-                //while (parser.ParseNextTick()) //Manual Demo Parse
-                //{
-                //    lblRoundNumber.Content = parser.CurrentTick;
-                //}
-            }
-        }
-
-        private void Parser_RoundOfficiallyEnd(object sender, RoundOfficiallyEndedEventArgs e)
-        {
-            //TEMPORARY FIX, WILL FIX WHEN CLASSES ARE FINISHED
-            if (!roundEndOccurred)
-            {
-                if(curr_round < 16)
-                {
-                    if (RoundWonBy == "CT")
-                        t1_ct++;
-                    else
-                        t2_t++;
-                }
-                else
-                {
-                    if (RoundWonBy == "CT")
-                        t2_ct++;
-                    else
-                        t1_t++;
-                }
-            }
-        }
-
-        private void Parser_RoundEnd(object sender, RoundEndedEventArgs e)
-        {
-            roundEndOccurred = true;
-
-            if (e.Winner != Team.Spectate)
-                processRound = true;
-        }
-
-        private void Parser_RoundStart(object sender, RoundStartedEventArgs e)
-        {
-            roundEndOccurred = false;
-            lblRoundNumber.Content = "Round: " + curr_round;
-        }
-
-        private void Parser_TeamScoreChange(object sender, TeamScoreChangeEventArgs e)
-        {
-            if (e.Team != Team.Spectate && processRound) //e.Team != Team.Spectate && processRound
-            {
-                if (curr_round < 16) //First Half
-                {
-                    if (e.Team == Team.CounterTerrorist)
-                    {
-                        lblTeam1Score.Content = parser.CTScore;
-                        t1_ct++;
-                        lblTeam1CT.Content = t1_ct;
-                        RoundWonBy = "CT";
-                    }
-                    else
-                    {
-                        lblTeam2Score.Content = parser.TScore;
-                        t2_t++;
-                        lblTeam2T.Content = t2_t;
-                        RoundWonBy = "T";
-                    }
-                }
-                else
-                {
-                    if (e.Team == Team.CounterTerrorist)
-                    {
-                        lblTeam2Score.Content = parser.CTScore;
-                        t2_ct++;
-                        lblTeam2CT.Content = t2_ct;
-                        RoundWonBy = "CT";
-                    }
-                    else
-                    {
-                        lblTeam1Score.Content = parser.TScore;
-                        t1_t++;
-                        lblTeam1T.Content = t1_t;
-                        RoundWonBy = "T";
-                    }
-                }
-            }
-            curr_round = parser.CTScore + parser.TScore + 1;
-            processRound = false;
+            DemoAnalyzer.AnalyzeDemo(fullpath, demo);
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             main.Content = new InitialPage(main);
+        }
+
+        private void BtnLeftBar_Click(object sender, RoutedEventArgs e)
+        {
+            if(isOpened)
+            {
+                panelLeft.Visibility = Visibility.Hidden;
+                panelRight.Margin = new Thickness(10, panelRight.Margin.Top, panelRight.Margin.Right, panelRight.Margin.Bottom);
+                isOpened = false;
+            }
+            else
+            {
+                panelLeft.Visibility = Visibility.Visible;
+                panelRight.Margin = new Thickness(440, panelRight.Margin.Top, panelRight.Margin.Right, panelRight.Margin.Bottom);
+                isOpened = true;
+            }
         }
     }
 }
