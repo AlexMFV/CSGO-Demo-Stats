@@ -1,18 +1,34 @@
-﻿using System;
+﻿using DemoInfo;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Demo_Stats
 {
-    class Player
+    public class Player
     {
         //General Variables
         public string name { get; set; }
-        public int id { get; set; }
+        public int playerID { get; set; }
         public string steamID { get; set; }
         public int rank { get; set; } //Number of the rank
+        public Team teamID { get; set; } //{Spectate, 1}, {T, 2}, {CT, 3}
+        public Image avatar { get; set; }
+        public int rankChange { get; set; } //0 = No Change, -1 = Derank, 1 = Rankup (maybe)
+        public int winCount { get; set; }
+        public Uri rankUri
+        {
+            get
+            {
+                if (rank >= 1 && rank <= 18)
+                    return new Uri(("../Images/Ranks/skillgroup" + this.rank + ".png"), UriKind.Relative);
+                else
+                    return null;
+            }
+        }
 
         //Game Stats
         public int kills { get; set; }
@@ -51,5 +67,13 @@ namespace Demo_Stats
         public int _1v5 { get; set; }
         public bool vac_banned { get; set; }
         public bool ow_banned { get; set; } //Overwatch banned
+
+        public Player(Team _team, string _name, long _steamID, int _playerID)
+        {
+            teamID = _team;
+            name = _name;
+            steamID = _steamID.ToString();
+            playerID = _playerID;
+        }
     }
 }

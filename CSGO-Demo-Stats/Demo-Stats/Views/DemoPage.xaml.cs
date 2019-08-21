@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -58,7 +59,20 @@ namespace Demo_Stats.Views
 
         private void BtnAnalyze_Click(object sender, RoutedEventArgs e)
         {
-            DemoAnalyzer.AnalyzeDemo(fullpath, demo);
+            switch (demo.source)
+            {
+                case Source.Valve: DemoAnalyzer.AnalyzeDemo(fullpath, demo); break;
+                case Source.Cevo: break;
+                case Source.Esea: break;
+                case Source.Esportal: break;
+                case Source.Faceit: break;
+                case Source.PopFlash: break;
+                case Source.Unknown: break;
+                default: break;
+            }
+
+            FilterTeams();
+            FillWithDemo();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -80,6 +94,39 @@ namespace Demo_Stats.Views
                 panelRight.Margin = new Thickness(440, panelRight.Margin.Top, panelRight.Margin.Right, panelRight.Margin.Bottom);
                 isOpened = true;
             }
+        }
+
+        private void FilterTeams()
+        {
+            CollectionViewSource source1 = new CollectionViewSource() { Source = demo.players };
+            CollectionViewSource source2 = new CollectionViewSource() { Source = demo.players };
+
+            ICollectionView PlayersTeam1 = source1.View;
+            ICollectionView PlayersTeam2 = source2.View;
+
+            var filter1 = new Predicate<object>(item => ((Player)item).teamID.Equals(Team.CounterTerrorist));
+            var filter2 = new Predicate<object>(item => ((Player)item).teamID.Equals(Team.Terrorist));
+
+            PlayersTeam1.Filter = filter1;
+            PlayersTeam2.Filter = filter2;
+
+            lstTeam1Players.ItemsSource = PlayersTeam1;
+            lstTeam2Players.ItemsSource = PlayersTeam2;
+        }
+
+        private void FillWithDemo()
+        {
+            lblTeam1.Content = demo.team1_name;
+            lblTeam2.Content = demo.team2_name;
+
+            lblTeam1Score.Content = demo.score_t1;
+            lblTeam2Score.Content = demo.score_t2;
+
+            lblTeam1CT.Content = demo.t1_ct;
+            lblTeam1T.Content = demo.t1_t;
+
+            lblTeam2CT.Content = demo.t2_ct;
+            lblTeam2T.Content = demo.t2_t;
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Demo_Stats
 {
-    class Players : CollectionBase
+    public class Players : CollectionBase
     {
         public void Add(Player player)
         {

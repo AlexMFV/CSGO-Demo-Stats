@@ -52,6 +52,8 @@
         public int bombs_planted { get; set; }
         public string comment { get; set; }
 
+        public Players players;
+
         //For now i'll just leave these variables, later on i'll need to add rounds,
         //players, utilities, locations, scores, hs%, kdr, hltv rating, etc
 
@@ -60,7 +62,7 @@
         #region Methods
 
         //Constructor
-        public Demo() { }
+        public Demo() { players = new Players(); }
 
         /// <summary>
         /// Creates a demo object with the initial values (when it's gathered as a new demo)
@@ -88,6 +90,7 @@
             server_tickrate = _server_tickrate;
             demo_framerate = _framerate;
             demo_ticks = _ticks;
+            players = new Players();
         }
 
         #endregion
