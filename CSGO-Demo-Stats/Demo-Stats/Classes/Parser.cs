@@ -13,30 +13,13 @@ namespace Demo_Stats
 {
     public static class Parser
     {
-        static string GrabJSONString(string id)
-        {
-            try
-            {
-                string _json;
-                using (WebClient web = new WebClient())
-                {
-                    _json = web.DownloadString(Resources.API_ProfileURL1 + APIKey.GetKeyFromFile() + Resources.API_ProfileURL2 + id);
-                }
-                return _json;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-        }
 
         public static Account ParseAccount(string id)
         {
             try
             {
                 Account newAcc = new Account();
-                JObject objs = JObject.Parse(TrimAccount(GrabJSONString(id)));
+                JObject objs = JObject.Parse(TrimAccount(JsonResource.GrabSteamJSONString(id)));
                 foreach (KeyValuePair<string, JToken> pair in objs)
                 {
                     switch (pair.Key)
@@ -71,7 +54,7 @@ namespace Demo_Stats
             try
             {
                 Account newAcc = new Account();
-                string json = GrabJSONString(id);
+                string json = JsonResource.GrabSteamJSONString(id);
                 JObject objs = new JObject();
 
                 //If it contains the empty array, then the SteamID is invalid
@@ -110,7 +93,7 @@ namespace Demo_Stats
             return false;
         }
 
-        static string TrimAccount(string json)
+        public static string TrimAccount(string json)
         {
             json = json.Remove(0, 24); //Initial part of the json string
             json = json.Remove(json.Length-4, 3); //Final }

@@ -41,7 +41,7 @@
                     <DataGridTemplateColumn Header="Avatar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding avatar}"/>
+                                <Image Source="{Binding avatar}" Height="20"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -95,7 +95,7 @@
                     <DataGridTemplateColumn Header="Avatar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding avatar}" />
+                                <Image Source="{Binding avatar}" Height="20"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

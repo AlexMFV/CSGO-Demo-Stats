@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace Demo_Stats
 {
@@ -16,7 +17,8 @@ namespace Demo_Stats
         public string steamID { get; set; }
         public int rank { get; set; } //Number of the rank
         public Team teamID { get; set; } //{Spectate, 1}, {T, 2}, {CT, 3}
-        public Image avatar { get; set; }
+        public BitmapImage avatar { get; set; }
+        public string avatarUrl { get; set; }
         public int rankChange { get; set; } //0 = No Change, -1 = Derank, 1 = Rankup (maybe)
         public int winCount { get; set; }
         public Uri rankUri

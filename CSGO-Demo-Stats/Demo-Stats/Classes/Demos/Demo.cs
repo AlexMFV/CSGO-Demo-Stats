@@ -1,4 +1,6 @@
-﻿namespace Demo_Stats
+﻿using Newtonsoft.Json;
+
+namespace Demo_Stats
 {
     public class Demo
     {
@@ -62,7 +64,7 @@
         #region Methods
 
         //Constructor
-        public Demo() { players = new Players(); }
+        public Demo() { players = new Players(); team1_name = "Team 1"; team2_name = "Team 2"; }
 
         /// <summary>
         /// Creates a demo object with the initial values (when it's gathered as a new demo)
@@ -90,6 +92,8 @@
             server_tickrate = _server_tickrate;
             demo_framerate = _framerate;
             demo_ticks = _ticks;
+            team1_name = "Team 1";
+            team2_name = "Team 2";
             players = new Players();
         }
 

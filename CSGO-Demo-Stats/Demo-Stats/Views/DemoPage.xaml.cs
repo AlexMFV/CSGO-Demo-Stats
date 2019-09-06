@@ -70,9 +70,9 @@ namespace Demo_Stats.Views
                 case Source.Unknown: break;
                 default: break;
             }
-
             FilterTeams();
             FillWithDemo();
+            FillPlayerAvatars();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -127,6 +127,17 @@ namespace Demo_Stats.Views
 
             lblTeam2CT.Content = demo.t2_ct;
             lblTeam2T.Content = demo.t2_t;
+        }
+
+        private void FillPlayerAvatars()
+        {
+            //List<BitmapImage> imgs = WebAccess.GetPlayerImages(demo.players);
+            //int idx = 0;
+            //foreach (Player p in demo.players)
+            //{
+            //    p.avatarUrl = "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+            //    //idx++;
+            //}
         }
     }
 }

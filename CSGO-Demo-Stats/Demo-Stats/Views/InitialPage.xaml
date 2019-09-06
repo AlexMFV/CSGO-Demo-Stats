@@ -19,14 +19,18 @@
                 <DataGridTextColumn Header="Date" x:Name="colDate" Binding="{Binding date}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
                 <DataGridTextColumn Header="Map" Binding="{Binding map}"/>
-                <!--<DataGridTextColumn Header="Team 1" Binding="{Binding source}"/>-->
-                <!--<DataGridTextColumn Header="Team 2" Binding="{Binding source}"/> -->
+                <DataGridTextColumn Header="Team 1" Binding="{Binding team1_name}"/>
+                <DataGridTextColumn Header="Team 2" Binding="{Binding team2_name}"/>
+                <DataGridTextColumn x:Name="columnStatus" Header="Status" Binding="{Binding status}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="ST1" Binding="{Binding score_t1}"/>
+                <DataGridTextColumn Header="ST2" Binding="{Binding score_t2}"/>
+                <DataGridTextColumn Header="Ban" /> <!--Binding="{Binding bans}"-->
                 <DataGridTextColumn Header="Duration" Binding="{Binding duration}"/>
                 <DataGridTextColumn Header="Hostname" Binding="{Binding hostname}"/>
                 <DataGridTextColumn Header="Client" Binding="{Binding demo_client}"/>
                 <DataGridTextColumn Header="TR" Binding="{Binding server_tickrate}"/>
                 <DataGridTextColumn Header="FR" Binding="{Binding demo_framerate}"/>
-                <DataGridTextColumn Header="Ticks" Binding="{Binding demo_ticks}" Width="*"/> <!--Temporary Fix?-->
+                <DataGridTextColumn Header="Ticks" Binding="{Binding demo_ticks}"/> <!--Temporary Fix?-->
             </DataGrid.Columns>
         </DataGrid>
         <WrapPanel HorizontalAlignment="Stretch" Margin="0,0,0,24" Width="1280" Height="31" VerticalAlignment="Bottom">

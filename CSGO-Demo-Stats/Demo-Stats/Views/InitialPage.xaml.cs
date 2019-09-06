@@ -76,9 +76,12 @@ namespace Demo_Stats.Views
         {
             if(cbbSelectedAccount.SelectedIndex >= 0 && acc_collection.Count > 0)
             {
+                columnStatus.Visibility = Visibility.Visible;
                 settings.selectedSteamID = acc_collection[cbbSelectedAccount.SelectedIndex].steamID;
                 Cache.SaveAppSettings(settings);
             }
+            else
+                columnStatus.Visibility = Visibility.Hidden;
         }
 
         public void FillFoldersComboBox()

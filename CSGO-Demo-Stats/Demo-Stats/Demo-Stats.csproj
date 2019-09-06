@@ -88,6 +88,7 @@
     <Compile Include="Classes\Misc\SettingsPanels.cs" />
     <Compile Include="Classes\Player\Player.cs" />
     <Compile Include="Classes\Player\Players.cs" />
+    <Compile Include="Classes\Web\JsonResource.cs" />
     <Compile Include="Classes\Web\WebAccess.cs" />
     <Compile Include="Dialogs\NewAccountDialog.xaml.cs">
       <DependentUpon>NewAccountDialog.xaml</DependentUpon>
