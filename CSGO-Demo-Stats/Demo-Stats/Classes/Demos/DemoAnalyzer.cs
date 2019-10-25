@@ -17,6 +17,7 @@ namespace Demo_Stats
         static bool processRound = false; //TEMPORARY FIX??
         static bool roundEndOccurred = false;
         static string RoundWonBy = null;
+        static bool isWarmup = true;
 
         public static void AnalyzeDemo(string path, Demo _demo)
         {
@@ -36,6 +37,9 @@ namespace Demo_Stats
                 parser.RoundEnd += Parser_RoundEnd;
                 parser.RoundOfficiallyEnd += Parser_RoundOfficiallyEnd;
                 parser.RankUpdate += Parser_RankUpdate;
+                parser.PlayerKilled += Parser_PlayerKilled;
+
+                parser.MatchStarted += Parser_MatchStarted;
 
                 //Player Events
                 parser.PlayerTeam += Parser_PlayerTeam;
@@ -48,6 +52,25 @@ namespace Demo_Stats
             }
         }
 
+        private static void Parser_MatchStarted(object sender, MatchStartedEventArgs e)
+        {
+            isWarmup = false;
+            //(throw new NotImplementedException();
+        }
+
+        private static void Parser_PlayerKilled(object sender, PlayerKilledEventArgs e)
+        {
+            if (!isWarmup)
+                foreach (Player p in demo.players)
+                    if (e.Killer != null)
+                        if (Convert.ToInt64(p.steamID) == e.Killer.SteamID)
+                        {
+                            p.kills = e.Killer.AdditionaInformations.Kills+1;
+                            break;
+                        }
+            //throw new NotImplementedException();                           
+        }
+
         #region Round Events
 
         private static void Parser_RoundStart(object sender, RoundStartedEventArgs e)
@@ -58,7 +81,6 @@ namespace Demo_Stats
         private static void Parser_RoundEnd(object sender, RoundEndedEventArgs e)
         {
             roundEndOccurred = true;
-
             if (e.Winner != Team.Spectate)
                 processRound = true;
         }

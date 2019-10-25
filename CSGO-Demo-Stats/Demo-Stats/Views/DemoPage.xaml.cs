@@ -136,7 +136,8 @@ namespace Demo_Stats.Views
             //foreach (Player p in demo.players)
             //{
             //    p.avatarUrl = "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-            //    //idx++;
+            //    p.avatar = imgs[idx];
+            //    idx++;
             //}
         }
     }
