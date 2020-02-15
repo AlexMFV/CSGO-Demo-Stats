@@ -30,43 +30,43 @@ namespace Demo_Stats
         }
 
         ////Maybe DELETE
-        //public static List<BitmapImage> GetPlayerImages(Players players)
-        //{
-        //    try
-        //    {
-        //        List<BitmapImage> imgs = new List<BitmapImage>();
-        //        List<string> urls = new List<string>();
-        //        string mainUrl = JsonResource.SteamURL();
+        public static List<BitmapImage> GetPlayerImages(Players players)
+        {
+            try
+            {
+                List<BitmapImage> imgs = new List<BitmapImage>();
+                List<string> urls = new List<string>();
+                string mainUrl = JsonResource.SteamURL();
 
-        //        foreach (Player p in players)
-        //            urls.Add(mainUrl + p.steamID);
+                foreach (Player p in players)
+                    urls.Add(mainUrl + p.steamID);
 
-        //        List<string> imgUrl = JsonResource.GrabJSONValue("avatar", urls);
+                List<string> imgUrl = JsonResource.GrabJSONValue("avatar", urls);
 
-        //        using (WebClient client = new WebClient())
-        //        {
-        //            foreach (string url in imgUrl)
-        //            {
-        //                imgs.Add(ImageFromBuffer(client.DownloadData(url)));
-        //            }
-        //            return imgs;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return null;
-        //    }
-        //}
+                using (WebClient client = new WebClient())
+                {
+                    foreach (string url in imgUrl)
+                    {
+                        imgs.Add(ImageFromBuffer(client.DownloadData(url)));
+                    }
+                    return imgs;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         ////Maybe DELETE
-        //public static BitmapImage ImageFromBuffer(byte[] bytes)
-        //{
-        //    MemoryStream stream = new MemoryStream(bytes);
-        //    BitmapImage image = new BitmapImage();
-        //    image.BeginInit();
-        //    image.StreamSource = stream;
-        //    image.EndInit();
-        //    return image;
-        //}
+        public static BitmapImage ImageFromBuffer(byte[] bytes)
+        {
+            MemoryStream stream = new MemoryStream(bytes);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = stream;
+            image.EndInit();
+            return image;
+        }
     }
 }

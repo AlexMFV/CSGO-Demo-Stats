@@ -25,7 +25,7 @@ namespace Demo_Stats
         {
             get
             {
-                if (rank >= 1 && rank <= 18)
+                if (rank >= 0 && rank <= 18)
                     return new Uri(("../Images/Ranks/skillgroup" + this.rank + ".png"), UriKind.Relative);
                 else
                     return null;

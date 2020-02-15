@@ -131,14 +131,15 @@ namespace Demo_Stats.Views
 
         private void FillPlayerAvatars()
         {
-            //List<BitmapImage> imgs = WebAccess.GetPlayerImages(demo.players);
-            //int idx = 0;
-            //foreach (Player p in demo.players)
-            //{
-            //    p.avatarUrl = "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-            //    p.avatar = imgs[idx];
-            //    idx++;
-            //}
+            List<BitmapImage> imgs = WebAccess.GetPlayerImages(demo.players);
+            int idx = 0;
+            foreach (Player p in demo.players)
+            {
+                //CHANGE LATER
+                p.avatarUrl = "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+                p.avatar = imgs[idx];
+                idx++;
+            }
         }
     }
 }
