@@ -1,6 +1,7 @@
 ﻿using DemoInfo;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,7 @@ namespace Demo_Stats
                 parser.RankUpdate += Parser_RankUpdate;
                 parser.PlayerKilled += Parser_PlayerKilled;
 
+                //Match Events
                 parser.MatchStarted += Parser_MatchStarted;
 
                 //Player Events
@@ -62,12 +64,19 @@ namespace Demo_Stats
         {
             if (!isWarmup)
                 foreach (Player p in demo.players)
+                {
                     if (e.Killer != null)
+                    {
                         if (Convert.ToInt64(p.steamID) == e.Killer.SteamID)
                         {
-                            p.kills = e.Killer.AdditionaInformations.Kills+1;
+                            if (e.Killer.AdditionaInformations.Kills + 1 == p.kills)
+                                p.kills++;
+                            else
+                                p.kills = e.Killer.AdditionaInformations.Kills + 1;
                             break;
                         }
+                    }
+                }
             //throw new NotImplementedException();                           
         }
 
@@ -113,8 +122,11 @@ namespace Demo_Stats
 
         private static void Parser_PlayerTeam(object sender, PlayerTeamEventArgs e)
         {
-            if (!e.IsBot && e.NewTeam != Team.Spectate && !isPlayerInTeam(e.Swapped.SteamID))
-                demo.players.Add(new Player(e.NewTeam, e.Swapped.Name, e.Swapped.SteamID, e.Swapped.EntityID));
+            if (!e.IsBot && e.NewTeam != Team.Spectate)
+            {
+                if(!updatePlayerFromTeam(e.Swapped.SteamID, e.NewTeam))
+                    demo.players.Add(new Player(e.NewTeam, e.Swapped.Name, e.Swapped.SteamID, e.Swapped.EntityID));
+            }
         }
 
         private static void Parser_RankUpdate(object sender, RankUpdateEventArgs e)
@@ -177,11 +189,16 @@ namespace Demo_Stats
 
         #region Methods
 
-        private static bool isPlayerInTeam(long steamID)
+        private static bool updatePlayerFromTeam(long steamID, Team newTeam)
         {
             foreach (Player p in demo.players)
+            {
                 if (p.steamID == steamID.ToString())
+                {
+                    p.teamID = newTeam;
                     return true;
+                }
+            }
             return false;
         }
 

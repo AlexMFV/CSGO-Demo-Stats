@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -104,8 +105,8 @@ namespace Demo_Stats.Views
             ICollectionView PlayersTeam1 = source1.View;
             ICollectionView PlayersTeam2 = source2.View;
 
-            var filter1 = new Predicate<object>(item => ((Player)item).teamID.Equals(Team.CounterTerrorist));
-            var filter2 = new Predicate<object>(item => ((Player)item).teamID.Equals(Team.Terrorist));
+            var filter1 = new Predicate<object>(item => ((Player)item).teamID.Equals(Team.Terrorist));
+            var filter2 = new Predicate<object>(item => ((Player)item).teamID.Equals(Team.CounterTerrorist));
 
             PlayersTeam1.Filter = filter1;
             PlayersTeam2.Filter = filter2;
