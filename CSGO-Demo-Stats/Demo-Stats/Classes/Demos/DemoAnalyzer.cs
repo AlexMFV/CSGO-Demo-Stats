@@ -62,22 +62,35 @@ namespace Demo_Stats
 
         private static void Parser_PlayerKilled(object sender, PlayerKilledEventArgs e)
         {
+            //Process kills, assists and deaths
             if (!isWarmup)
                 foreach (Player p in demo.players)
                 {
                     if (e.Killer != null)
                     {
-                        if (Convert.ToInt64(p.steamID) == e.Killer.SteamID)
-                        {
-                            if (e.Killer.AdditionaInformations.Kills + 1 == p.kills)
-                                p.kills++;
-                            else
-                                p.kills = e.Killer.AdditionaInformations.Kills + 1;
-                            break;
-                        }
+                        if (p.steamID == e.Killer.SteamID.ToString()) CalculateKills(p, e.Killer);
+                        if (p.steamID == e.Assister.SteamID.ToString()) CalculateAssists(p, e.Assister);
+                        if (p.steamID == e.Victim.SteamID.ToString()) CalculateDeaths(p, e.Victim);
                     }
                 }
-            //throw new NotImplementedException();                           
+        }
+
+        static void CalculateKills(Player p, DemoInfo.Player killer)
+        {
+            if (killer.AdditionaInformations.Kills + 1 == p.kills)
+                p.kills++;
+            else
+                p.kills = killer.AdditionaInformations.Kills + 1;
+        }
+
+        static void CalculateAssists(Player p, DemoInfo.Player assister)
+        {
+            p.assists++;
+        }
+
+        static void CalculateDeaths(Player p, DemoInfo.Player victim)
+        {
+            p.deaths++;
         }
 
         #region Round Events
@@ -124,7 +137,7 @@ namespace Demo_Stats
         {
             if (!e.IsBot && e.NewTeam != Team.Spectate)
             {
-                if(!updatePlayerFromTeam(e.Swapped.SteamID, e.NewTeam))
+                if (!updatePlayerFromTeam(e.Swapped.SteamID, e.NewTeam))
                     demo.players.Add(new Player(e.NewTeam, e.Swapped.Name, e.Swapped.SteamID, e.Swapped.EntityID));
             }
         }
