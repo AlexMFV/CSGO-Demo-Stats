@@ -1,5 +1,7 @@
 # CSGO-Demo-Stats
 
+[![CodeFactor](https://www.codefactor.io/repository/github/alexmfv/csgo-demo-stats/badge)](https://www.codefactor.io/repository/github/alexmfv/csgo-demo-stats)
+
 ## 🚨🚨🚨 Still in very early stages of development 🚨🚨🚨
 ### UI is cloned from the original App (disclosed in credits), later i'll change the design.
 
