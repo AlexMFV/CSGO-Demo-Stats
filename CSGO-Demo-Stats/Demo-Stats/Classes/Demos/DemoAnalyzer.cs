@@ -52,6 +52,8 @@ namespace Demo_Stats
                 //Parse till the end of the demo
                 parser.ParseToEnd();
             }
+
+            CalculateAdditionalValues();
         }
 
         private static void Parser_MatchStarted(object sender, MatchStartedEventArgs e)
@@ -68,19 +70,27 @@ namespace Demo_Stats
                 {
                     if (e.Killer != null)
                     {
-                        if (p.steamID == e.Killer.SteamID.ToString()) CalculateKills(p, e.Killer);
+                        if (p.steamID == e.Killer.SteamID.ToString()) CalculateKills(p, e.Killer, e.Headshot);
                         if (e.Assister != null && p.steamID == e.Assister.SteamID.ToString()) CalculateAssists(p, e.Assister);
                         if (p.steamID == e.Victim.SteamID.ToString()) CalculateDeaths(p, e.Victim);
                     }
                 }
         }
 
-        static void CalculateKills(Player p, DemoInfo.Player killer)
+        static void CalculateKills(Player p, DemoInfo.Player killer, bool headshot)
         {
             if (killer.AdditionaInformations.Kills + 1 == p.kills)
+            {
                 p.kills++;
+                if (headshot)
+                    p.hs++;
+            }
             else
+            {
                 p.kills = killer.AdditionaInformations.Kills + 1;
+                if (headshot)
+                    p.hs += 2;
+            }
         }
 
         static void CalculateAssists(Player p, DemoInfo.Player assister)
@@ -97,6 +107,14 @@ namespace Demo_Stats
                 p.deaths++;
             else
                 p.deaths = victim.AdditionaInformations.Deaths + 1;
+        }
+
+        static void CalculateAdditionalValues()
+        {
+            foreach(Player p in demo.players)
+            {
+                p.kdr = Math.Round((double)p.kills / (double)p.deaths, 2);
+            }
         }
 
         #region Round Events
