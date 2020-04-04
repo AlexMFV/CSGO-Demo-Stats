@@ -69,7 +69,7 @@ namespace Demo_Stats
                     if (e.Killer != null)
                     {
                         if (p.steamID == e.Killer.SteamID.ToString()) CalculateKills(p, e.Killer);
-                        if (p.steamID == e.Assister.SteamID.ToString()) CalculateAssists(p, e.Assister);
+                        if (e.Assister != null && p.steamID == e.Assister.SteamID.ToString()) CalculateAssists(p, e.Assister);
                         if (p.steamID == e.Victim.SteamID.ToString()) CalculateDeaths(p, e.Victim);
                     }
                 }
@@ -85,12 +85,18 @@ namespace Demo_Stats
 
         static void CalculateAssists(Player p, DemoInfo.Player assister)
         {
-            p.assists++;
+            if (assister.AdditionaInformations.Assists + 1 == p.assists)
+                p.assists++;
+            else
+                p.assists = assister.AdditionaInformations.Assists + 1;
         }
 
         static void CalculateDeaths(Player p, DemoInfo.Player victim)
         {
-            p.deaths++;
+            if (victim.AdditionaInformations.Deaths + 1 == p.deaths)
+                p.deaths++;
+            else
+                p.deaths = victim.AdditionaInformations.Deaths + 1;
         }
 
         #region Round Events
