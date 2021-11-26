@@ -69,7 +69,7 @@ namespace Demo_Stats
                     if (e.Killer != null)
                     {
                         if (p.steamID == e.Killer.SteamID.ToString()) CalculateKills(p, e.Killer);
-                        if (p.steamID == e.Assister.SteamID.ToString()) CalculateAssists(p, e.Assister);
+                        if (e.Assister != null && p.steamID == e.Assister.SteamID.ToString()) CalculateAssists(p, e.Assister);
                         if (p.steamID == e.Victim.SteamID.ToString()) CalculateDeaths(p, e.Victim);
                     }
                 }
