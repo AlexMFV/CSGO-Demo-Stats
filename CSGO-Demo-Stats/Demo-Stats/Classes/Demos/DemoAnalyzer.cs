@@ -51,9 +51,10 @@ namespace Demo_Stats
 
                 //Parse till the end of the demo
                 parser.ParseToEnd();
+
+                PostProcessingCalculations();
             }
         }
-
         private static void Parser_MatchStarted(object sender, MatchStartedEventArgs e)
         {
             isWarmup = false;
@@ -91,6 +92,19 @@ namespace Demo_Stats
         static void CalculateDeaths(Player p, DemoInfo.Player victim)
         {
             p.deaths++;
+        }
+
+        static void PostProcessingCalculations()
+        {
+            for(int i = 0; i < demo.players.Count-1; i++)
+            {
+                CalculateKD(i);
+            }
+        }
+
+        static double CalculateKD(int playerId)
+        {
+            return demo.players[playerId].kdr = (double)demo.players[playerId].kills / (double)demo.players[playerId].deaths;
         }
 
         #region Round Events
